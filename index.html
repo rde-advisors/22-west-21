@@ -408,19 +408,23 @@ img{display:block;max-width:100%}
   transform:translate(-50%,-50%);
 }
 .map-marker .pin{
-  width:34px;height:34px;border-radius:50%;
-  background:#fff;color:#0e3a6b;
+  width:38px;height:38px;border-radius:50%;
+  background:var(--green);color:#fff;
+  border:2px solid #fff;
   display:flex;align-items:center;justify-content:center;
-  font-size:17px;font-weight:700;
-  box-shadow:0 4px 12px rgba(0,0,0,.35);
+  font-family:'Inter',sans-serif;
+  font-size:18px;font-weight:800;letter-spacing:-.01em;
+  box-shadow:0 4px 14px rgba(0,0,0,.5);
 }
 .map-marker .lbl{
   font-family:'Inter',sans-serif;
-  font-size:11px;font-weight:700;letter-spacing:.1em;color:#fff;
+  font-size:12px;font-weight:800;letter-spacing:.14em;color:#fff;
   text-transform:uppercase;white-space:nowrap;
-  text-shadow:0 2px 6px rgba(0,0,0,.6);
+  padding:5px 10px;border-radius:4px;
+  background:rgba(20,17,13,.78);
+  box-shadow:0 4px 12px rgba(0,0,0,.35);
 }
-.map-marker.bathhouse{left:26%;top:42%}
+.map-marker.bathhouse{left:30%;top:43%}
 .map-cap{
   text-align:center;font-size:12px;color:var(--ink-3);
   margin-top:18px;font-style:italic;
@@ -756,7 +760,7 @@ img{display:block;max-width:100%}
     <div class="map-frame">
       <img src="images/flatiron-map.png" alt="Flatiron District map showing 22 West 21st Street and nearby landmarks">
       <div class="map-marker bathhouse">
-        <span class="pin">&#9832;</span>
+        <span class="pin">B</span>
         <span class="lbl">Bathhouse</span>
       </div>
     </div>
