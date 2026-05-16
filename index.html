@@ -249,6 +249,10 @@ img{display:block;max-width:100%}
   font-size:clamp(40px,4.4vw,60px);line-height:1.05;letter-spacing:-.02em;
 }
 .floor-h em{font-style:italic;color:var(--green);font-weight:300}
+.floor-sub{
+  font-size:14px;color:var(--ink-3);margin-top:16px;
+  font-style:italic;line-height:1.55;max-width:34ch;
+}
 .floor-specs{
   list-style:none;display:flex;flex-direction:column;
   margin-top:32px;border-top:1px solid var(--rule-2);
@@ -389,6 +393,38 @@ img{display:block;max-width:100%}
 }
 .lightbox.open{display:flex}
 .lightbox img{max-width:96%;max-height:96%;object-fit:contain;background:#fff;border-radius:8px}
+
+/* ===== FLATIRON MAP ===== */
+.map-frame{
+  position:relative;margin-top:48px;
+  border-radius:18px;overflow:hidden;
+  box-shadow:var(--shadow);
+  background:#0e3a6b;
+}
+.map-frame img{width:100%;display:block;height:auto}
+.map-marker{
+  position:absolute;z-index:2;pointer-events:none;
+  display:flex;align-items:center;gap:10px;
+  transform:translate(-50%,-50%);
+}
+.map-marker .pin{
+  width:34px;height:34px;border-radius:50%;
+  background:#fff;color:#0e3a6b;
+  display:flex;align-items:center;justify-content:center;
+  font-size:17px;font-weight:700;
+  box-shadow:0 4px 12px rgba(0,0,0,.35);
+}
+.map-marker .lbl{
+  font-family:'Inter',sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:.1em;color:#fff;
+  text-transform:uppercase;white-space:nowrap;
+  text-shadow:0 2px 6px rgba(0,0,0,.6);
+}
+.map-marker.bathhouse{left:26%;top:42%}
+.map-cap{
+  text-align:center;font-size:12px;color:var(--ink-3);
+  margin-top:18px;font-style:italic;
+}
 
 /* ===== FLATIRON ===== */
 .pills-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:40px}
@@ -531,16 +567,17 @@ img{display:block;max-width:100%}
 <!-- OVERVIEW -->
 <section class="scene" id="overview">
   <div class="reveal"><div class="scene-label">The Opportunity</div></div>
-  <div class="reveal r-d1"><h2 class="scene-title">An entire <em>2nd&nbsp;floor</em> in Flatiron &mdash; furnished, plug-and-play, and ready the day you sign.</h2></div>
+  <div class="reveal r-d1"><h2 class="scene-title">A <em>full floor</em> in Flatiron &mdash; furnished, plug-and-play, and ready the day you sign.</h2></div>
   <div class="opp-grid">
     <div class="reveal r-d2">
       <p class="opp-prose">
         <strong>22 West 21st Street</strong> offers a rare <em class="hl">full-floor</em>
-        opportunity in one of Manhattan's most sought-after submarkets &mdash; the entire 2nd floor,
-        <strong>11,498 rentable square feet</strong>, fully furnished and <em class="hl">move-in
-        ready</em>. Walk in to <strong>68 desks</strong> with room to densify, six conference rooms,
-        a boardroom, and eight phone booths &mdash; all served by two passenger and two freight
-        elevators. High ceilings, oversized windows, and Flatiron light throughout.
+        opportunity in one of Manhattan's most sought-after submarkets &mdash; the entire
+        2nd floor, <strong>11,498 rentable square feet</strong>, fully furnished and
+        <em class="hl">move-in ready</em>. Hands-on ownership treats tenants and brokers as
+        VIP clients &mdash; flexible enough to deliver the floor as it stands today, or to
+        build out high-end, bespoke upgrades for long-term occupiers. The details of the
+        space as it stands are below.
       </p>
     </div>
     <div class="reveal r-d3">
@@ -560,15 +597,17 @@ img{display:block;max-width:100%}
   <div class="reveal r-d2">
     <div class="floor-card">
       <div class="floor-card-meta">
-        <div class="floor-id">2nd Floor</div>
+        <div class="floor-id">2nd Floor &middot; As It Stands</div>
         <div class="floor-h"><em>11,498</em> RSF, the full floor.</div>
+        <div class="floor-sub">The current condition &mdash; fully furnished and plug-and-play.
+          Specs below.</div>
         <ul class="floor-specs">
           <li><span class="k">Size</span><span class="v">11,498 RSF &middot; Full Floor</span></li>
-          <li><span class="k">Layout</span><span class="v">68 Workstations</span></li>
+          <li><span class="k">Layout</span><span class="v">68 Workstations &middot; Room to Densify</span></li>
           <li><span class="k">Meeting</span><span class="v">6 Conference + 1 Boardroom</span></li>
           <li><span class="k">Focus</span><span class="v">8 Phone Booths</span></li>
           <li><span class="k">Elevators</span><span class="v">2 Passenger + 2 Freight</span></li>
-          <li><span class="k">Light</span><span class="v">Oversized Windows, High Ceilings</span></li>
+          <li><span class="k">Light</span><span class="v">High ceilings, oversized windows that flood light into the space</span></li>
           <li><span class="k">Condition</span><span class="v">Furnished &middot; Plug-and-Play</span></li>
         </ul>
         <div class="floor-status">Available Now</div>
@@ -584,7 +623,7 @@ img{display:block;max-width:100%}
 <!-- ENVISION -->
 <section class="scene" id="envision">
   <div class="reveal"><div class="scene-label">Envisioned</div></div>
-  <div class="reveal r-d1"><h2 class="scene-title">What the floor <em>becomes</em>.</h2></div>
+  <div class="reveal r-d1"><h2 class="scene-title">The floor's <em>full potential</em>.</h2></div>
   <div class="reveal r-d2"><p class="scene-sub">A series of design studies for 22 West 21 &mdash; the
     bones of the building elevated to a polished, design-forward workplace. Every angle below is the
     same floor, the same camera, just reimagined.</p></div>
@@ -609,8 +648,7 @@ img{display:block;max-width:100%}
         <div class="env-eyebrow">02 &mdash; The Pantry</div>
         <div class="env-h">A <em>living</em> pantry, lounge included.</div>
         <div class="env-body">Hospitality-grade kitchen, a green canopy overhead, and a soft lounge
-          beside it &mdash; the floor's social center. Two or three seats at the counter, room for the
-          rest of the team to gather around it.</div>
+          beside it &mdash; the floor's social center.</div>
       </div>
     </div>
 
@@ -621,9 +659,9 @@ img{display:block;max-width:100%}
       <div class="env-pair-text">
         <div class="env-eyebrow">03 &mdash; The Open Floor</div>
         <div class="env-h">Open work, <em>designed</em>.</div>
-        <div class="env-body">Sleek desks in wood and matte black, premium task chairs, glass-walled
-          meeting rooms ringing the floor &mdash; light passes through everything. A refined ceiling
-          with linear lighting, the columns left as bones.</div>
+        <div class="env-body">Sleek desks in wood and matte black, premium task chairs, and glass-walled meeting rooms
+          throughout &mdash; light passes through everywhere. A refined ceiling with linear lighting,
+          the columns left as bones.</div>
       </div>
     </div>
 
@@ -714,7 +752,17 @@ img{display:block;max-width:100%}
       Square Park</strong> &mdash; the Flatiron District pairs landmark architecture with the city's
       best food, fitness, and transit. Everything your team wants is within a few blocks.</p>
   </div>
-  <div class="reveal r-d1 pills-row">
+  <div class="reveal r-d1">
+    <div class="map-frame">
+      <img src="images/flatiron-map.png" alt="Flatiron District map showing 22 West 21st Street and nearby landmarks">
+      <div class="map-marker bathhouse">
+        <span class="pin">&#9832;</span>
+        <span class="lbl">Bathhouse</span>
+      </div>
+    </div>
+    <div class="map-cap">Bathhouse &mdash; one block north on West 22nd Street.</div>
+  </div>
+  <div class="reveal r-d2 pills-row">
     <span class="pill">Madison Square Park</span>
     <span class="pill">Eataly</span>
     <span class="pill">Eleven Madison Park</span>
@@ -726,7 +774,7 @@ img{display:block;max-width:100%}
     <span class="pill">The NoMad</span>
     <span class="pill">Rizzoli Bookstore</span>
   </div>
-  <div class="reveal r-d2">
+  <div class="reveal r-d3">
     <div class="transit-label">Subway &mdash; 23rd Street Stations</div>
     <div class="subway-row">
       <span class="sub" style="background:#FF6319" title="F line">F</span>
@@ -751,23 +799,23 @@ img{display:block;max-width:100%}
   </div>
   <div class="reveal r-d1 brokers">
     <div class="broker">
-      <div class="broker-name">Jeremy Birns</div>
-      <div class="broker-firm">RDE Advisors</div>
-      <div class="broker-phone"><a href="tel:+12016555092">201-655-5092</a></div>
-      <div class="broker-email"><a href="mailto:Jeremy@RDEadvisors.com">Jeremy@RDEadvisors.com</a></div>
-    </div>
-    <div class="broker">
       <div class="broker-name">Ross D. Eisenberg</div>
       <div class="broker-firm">RDE Advisors</div>
       <div class="broker-phone"><a href="tel:+13479207220">347-920-7220</a></div>
       <div class="broker-email"><a href="mailto:Ross@RDEadvisors.com">Ross@RDEadvisors.com</a></div>
+    </div>
+    <div class="broker">
+      <div class="broker-name">Jeremy Birns</div>
+      <div class="broker-firm">RDE Advisors</div>
+      <div class="broker-phone"><a href="tel:+12016555092">201-655-5092</a></div>
+      <div class="broker-email"><a href="mailto:Jeremy@RDEadvisors.com">Jeremy@RDEadvisors.com</a></div>
     </div>
   </div>
 </section>
 
 <footer class="foot">
   <div class="foot-inner">
-    <div class="foot-logo"><img src="images/rde-logo-dark.svg" alt="RDE Advisors, Inc."></div>
+    <div class="foot-logo"><img src="images/rde-logo.png" alt="RDE Advisors, Inc."></div>
     <div class="foot-fine">
       22 West 21st Street, New York, NY &mdash; Flatiron District.<br>
       All information is from sources deemed reliable and is subject to errors, omissions, change of
