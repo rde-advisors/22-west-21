@@ -5,9 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>22 West 21st Street — Full Floor Opportunity | Flatiron District, NYC</title>
 <meta name="description" content="11,498 RSF furnished, plug-and-play full floor in the heart of the Flatiron District, NYC. Move-in ready, 68 desks, high ceilings, oversized windows.">
+<link rel="canonical" href="https://rde-advisors.github.io/22-west-21/">
+<link rel="icon" type="image/png" href="images/rde-logo.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="22 West 21st Street — Full Floor in Flatiron">
+<meta property="og:description" content="11,498 RSF furnished, plug-and-play full floor in the heart of the Flatiron District, NYC.">
+<meta property="og:image" content="https://rde-advisors.github.io/22-west-21/images/render-hero.jpg">
+<meta property="og:url" content="https://rde-advisors.github.io/22-west-21/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="22 West 21st Street — Full Floor in Flatiron">
+<meta name="twitter:description" content="11,498 RSF furnished, plug-and-play full floor in the Flatiron District, NYC.">
+<meta name="twitter:image" content="https://rde-advisors.github.io/22-west-21/images/render-hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800;9..144,900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* ===== TOKENS ===== */
 :root{
@@ -15,7 +26,7 @@
   --surface:#ffffff;
   --ink:#14110d;
   --ink-2:#3a3530;
-  --ink-3:#7a7570;
+  --ink-3:#6a655f;
   --ink-4:#b8b4af;
   --rule:#e6e3dd;
   --rule-2:#efece6;
@@ -40,6 +51,7 @@ body{
 ::selection{background:var(--green);color:#fff}
 a{color:var(--green);text-decoration:none;transition:color .25s}
 a:hover{color:var(--green-2)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:4px}
 img{display:block;max-width:100%}
 
 @media(prefers-reduced-motion:reduce){
@@ -72,6 +84,15 @@ img{display:block;max-width:100%}
 .nav.scrolled .nav-brand{opacity:1}
 .nav-brand em{font-style:italic;color:var(--green);font-weight:500}
 .nav-links{display:flex;gap:32px;align-items:center}
+.nav-burger{display:none;background:transparent;border:none;cursor:pointer;width:44px;height:44px;padding:0;flex-direction:column;justify-content:center;align-items:center;gap:5px}
+.nav-burger span{display:block;width:24px;height:2px;background:var(--ink);transition:transform .25s ease,opacity .2s ease}
+.nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger.open span:nth-child(2){opacity:0}
+.nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-mobile{display:none;position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,.98);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:84px 28px 32px;z-index:99;flex-direction:column;gap:6px;border-bottom:1px solid var(--rule);box-shadow:0 20px 40px rgba(20,17,13,.08)}
+.nav-mobile.open{display:flex}
+.nav-mobile a{font-family:'Fraunces',serif;font-size:22px;font-weight:500;color:var(--ink);padding:14px 0;border-bottom:1px solid var(--rule-2);letter-spacing:-.01em}
+.nav-mobile a:last-child{border-bottom:none}
 .nav-links a{
   font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
   color:var(--ink-2);
@@ -404,9 +425,10 @@ img{display:block;max-width:100%}
 .map-frame img{width:100%;display:block;height:auto}
 .map-marker{
   position:absolute;z-index:2;pointer-events:none;
-  display:flex;align-items:center;gap:10px;
-  transform:translate(-50%,-50%);
+  display:flex;align-items:center;gap:8px;
+  transform:translateY(-50%);
 }
+.map-marker .pin{transform:translateX(-50%)}
 .map-marker .pin{
   width:30px;height:30px;border-radius:50%;
   background:#fff;color:var(--green);
@@ -417,13 +439,11 @@ img{display:block;max-width:100%}
 }
 .map-marker .lbl{
   font-family:'Inter',sans-serif;
-  font-size:11px;font-weight:800;letter-spacing:.14em;color:#fff;
+  font-size:11px;font-weight:700;letter-spacing:.08em;color:#fff;
   text-transform:uppercase;white-space:nowrap;
-  padding:5px 10px;border-radius:4px;
-  background:var(--green);
-  box-shadow:0 3px 10px rgba(0,0,0,.3);
+  text-shadow:0 1px 3px rgba(0,0,0,.65), 0 0 6px rgba(0,0,0,.4);
 }
-.map-marker.bathhouse{left:29%;top:62%}
+.map-marker.bathhouse{left:25%;top:54%}
 .map-cap{
   text-align:center;font-size:12px;color:var(--ink-3);
   margin-top:18px;font-style:italic;
@@ -501,10 +521,15 @@ img{display:block;max-width:100%}
   .env-row,.env-row.reverse{grid-template-columns:1fr;gap:20px}
   .env-row.reverse .env-stage{order:0}
 }
+@media(max-width:480px){
+  .map-marker .pin{width:24px;height:24px;font-size:12px}
+  .map-marker .lbl{font-size:9px;letter-spacing:.1em;padding:3px 7px}
+}
 @media(max-width:768px){
   .nav{padding:14px 22px}
   .nav.scrolled{padding:12px 22px}
   .nav-links{display:none}
+  .nav-burger{display:flex}
   .nav-brand{opacity:1;font-size:16px}
   .nav-cta{padding:8px 16px;font-size:10px}
   .hero-text{padding:48px 24px 64px}
@@ -546,7 +571,18 @@ img{display:block;max-width:100%}
     <a href="#flatiron">Flatiron</a>
   </div>
   <a href="#contact" class="nav-cta">Contact</a>
+  <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-controls="navMobile" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
+<div class="nav-mobile" id="navMobile" role="menu">
+  <a href="#overview" role="menuitem">Overview</a>
+  <a href="#floor" role="menuitem">The Floor</a>
+  <a href="#envision" role="menuitem">Envision</a>
+  <a href="#highlights" role="menuitem">Highlights</a>
+  <a href="#today" role="menuitem">Today</a>
+  <a href="#plan" role="menuitem">Floor Plan</a>
+  <a href="#flatiron" role="menuitem">Flatiron</a>
+  <a href="#contact" role="menuitem">Contact</a>
+</div>
 
 <!-- HERO (editorial split) -->
 <section class="hero" id="hero">
@@ -558,7 +594,7 @@ img{display:block;max-width:100%}
     <div class="hero-stats">
       <div class="hero-stat"><div class="hero-stat-num">11,498</div><div class="hero-stat-label">RSF</div></div>
       <div class="hero-stat"><div class="hero-stat-num">68</div><div class="hero-stat-label">Desks</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">7</div><div class="hero-stat-label">Conf. + Board</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">7</div><div class="hero-stat-label">Meeting Rooms</div></div>
     </div>
     <div class="scroll-cue">Scroll</div>
   </div>
@@ -577,10 +613,9 @@ img{display:block;max-width:100%}
         <strong>22 West 21st Street</strong> offers a rare <em class="hl">full-floor</em>
         opportunity in one of Manhattan's most sought-after submarkets &mdash; the entire
         2nd floor, <strong>11,498 rentable square feet</strong>, fully furnished and
-        <em class="hl">move-in ready</em>. Hands-on ownership treats tenants and brokers as
-        VIP clients &mdash; flexible enough to deliver the floor as it stands today, or to
-        build out high-end, bespoke upgrades for long-term occupiers. The details of the
-        space as it stands are below.
+        <em class="hl">move-in ready</em>. Ownership is <em class="hl">hands-on and
+        responsive</em> &mdash; willing to deliver the floor as it stands, or to fund a
+        high-end, bespoke build-out for the right long-term occupier.
       </p>
     </div>
     <div class="reveal r-d3">
@@ -610,13 +645,13 @@ img{display:block;max-width:100%}
           <li><span class="k">Meeting</span><span class="v">6 Conference + 1 Boardroom</span></li>
           <li><span class="k">Focus</span><span class="v">8 Phone Booths</span></li>
           <li><span class="k">Elevators</span><span class="v">2 Passenger + 2 Freight</span></li>
-          <li><span class="k">Light</span><span class="v">High ceilings, oversized windows that flood light into the space</span></li>
+          <li><span class="k">Light</span><span class="v">High Ceilings &middot; Oversized Windows</span></li>
           <li><span class="k">Condition</span><span class="v">Furnished &middot; Plug-and-Play</span></li>
         </ul>
         <div class="floor-status">Available Now</div>
       </div>
       <div class="floor-card-img">
-        <img src="images/render-windows.jpg" alt="22 West 21st Street — open floor with windows">
+        <img loading="lazy" decoding="async" src="images/render-windows.jpg" alt="22 West 21st Street — open floor with windows">
       </div>
     </div>
     <div class="floor-note">For availability on floors above and below, contact the leasing team.</div>
@@ -645,7 +680,7 @@ img{display:block;max-width:100%}
 
     <div class="env-row reveal">
       <div class="env-stage">
-        <img src="images/render-pantry.jpg" alt="The pantry and lounge — envisioned">
+        <img loading="lazy" decoding="async" src="images/render-pantry.jpg" alt="The pantry and lounge — envisioned">
       </div>
       <div class="env-pair-text">
         <div class="env-eyebrow">02 &mdash; The Pantry</div>
@@ -657,7 +692,7 @@ img{display:block;max-width:100%}
 
     <div class="env-row reverse reveal">
       <div class="env-stage">
-        <img src="images/render-office.jpg" alt="The open work area — envisioned">
+        <img loading="lazy" decoding="async" src="images/render-office.jpg" alt="The open work area — envisioned">
       </div>
       <div class="env-pair-text">
         <div class="env-eyebrow">03 &mdash; The Open Floor</div>
@@ -670,7 +705,7 @@ img{display:block;max-width:100%}
 
     <div class="env-row reveal">
       <div class="env-stage">
-        <img src="images/render-windows.jpg" alt="A wall of windows — envisioned">
+        <img loading="lazy" decoding="async" src="images/render-windows.jpg" alt="A wall of windows — envisioned">
       </div>
       <div class="env-pair-text">
         <div class="env-eyebrow">04 &mdash; Light</div>
@@ -704,22 +739,22 @@ img{display:block;max-width:100%}
   <div class="reveal r-d2" style="max-width:1320px;margin:56px auto 0;padding:0 60px">
     <div class="today-wrap">
       <div class="today-track" id="todayTrack">
-        <div class="today-slide"><img src="images/pantry.jpg" alt="The pantry today">
+        <div class="today-slide"><img loading="lazy" decoding="async" src="images/pantry.jpg" alt="The pantry today">
           <div class="today-cap"><div class="today-cap-eyebrow">Today &mdash; Pantry &amp; Lounge</div>
             <h4>The pantry as it stands.</h4><p>Living plant wall, full kitchen, breakout space.</p></div></div>
-        <div class="today-slide"><img src="images/open-office-dense.jpg" alt="Open office today">
+        <div class="today-slide"><img loading="lazy" decoding="async" src="images/open-office-dense.jpg" alt="Open office today">
           <div class="today-cap"><div class="today-cap-eyebrow">Today &mdash; Open Floor</div>
             <h4>68 desks, room to densify.</h4><p>The column-spaced floor plate takes considerably more.</p></div></div>
-        <div class="today-slide"><img src="images/glass-offices.jpg" alt="Glass offices today">
+        <div class="today-slide"><img loading="lazy" decoding="async" src="images/glass-offices.jpg" alt="Glass offices today">
           <div class="today-cap"><div class="today-cap-eyebrow">Today &mdash; Meeting Rooms</div>
             <h4>Glass-walled offices.</h4><p>Private offices and meeting rooms ring the floor.</p></div></div>
-        <div class="today-slide"><img src="images/huddle-room.jpg" alt="Huddle room today">
+        <div class="today-slide"><img loading="lazy" decoding="async" src="images/huddle-room.jpg" alt="Huddle room today">
           <div class="today-cap"><div class="today-cap-eyebrow">Today &mdash; Conference</div>
             <h4>Six conference rooms.</h4><p>Acoustically treated, wired, and ready.</p></div></div>
-        <div class="today-slide"><img src="images/boardroom-asis.jpg" alt="Boardroom today">
+        <div class="today-slide"><img loading="lazy" decoding="async" src="images/boardroom-asis.jpg" alt="Boardroom today">
           <div class="today-cap"><div class="today-cap-eyebrow">Today &mdash; Boardroom</div>
             <h4>A full boardroom.</h4><p>Custom lighting, wall of windows, ready to use.</p></div></div>
-        <div class="today-slide"><img src="images/reception-asis.jpg" alt="Reception today">
+        <div class="today-slide"><img loading="lazy" decoding="async" src="images/reception-asis.jpg" alt="Reception today">
           <div class="today-cap"><div class="today-cap-eyebrow">Today &mdash; Arrival</div>
             <h4>A stone reception arrival.</h4><p>Sculptural lighting and a marble desk the moment the elevator opens.</p></div></div>
       </div>
@@ -740,7 +775,7 @@ img{display:block;max-width:100%}
   </div>
   <div class="reveal r-d1">
     <div class="plan-frame">
-      <img class="plan-img" id="planImg" src="images/floor-plan.png" alt="22 West 21st Street floor plan — test-fit, 68 desks">
+      <img loading="lazy" decoding="async" class="plan-img" id="planImg" src="images/floor-plan.png" alt="22 West 21st Street floor plan — test-fit, 68 desks">
     </div>
     <div class="plan-hint">Click the plan to enlarge</div>
   </div>
@@ -757,7 +792,7 @@ img{display:block;max-width:100%}
   </div>
   <div class="reveal r-d1">
     <div class="map-frame">
-      <img src="images/flatiron-map.png" alt="Flatiron District map showing 22 West 21st Street and nearby landmarks">
+      <img loading="lazy" decoding="async" src="images/flatiron-map.png" alt="Flatiron District map showing 22 West 21st Street and nearby landmarks">
       <div class="map-marker bathhouse">
         <span class="pin">B</span>
         <span class="lbl">Bathhouse</span>
@@ -880,8 +915,8 @@ img{display:block;max-width:100%}
 var HIGHLIGHTS=[
   {n:'01',title:'Move-In Ready',desc:'No build-out, no downtime. Finished, furnished, ready to occupy.'},
   {n:'02',title:'Fully Furnished',desc:'Desks, chairs, conference tables, lounge furniture &mdash; all in place. Plug-and-play from day one.'},
-  {n:'03',title:'68 Desks',desc:'Configured for 68 workstations today. The open, column-spaced plate takes considerably more.'},
-  {n:'04',title:'2 + 2 Elevators',desc:'Two passenger cabs plus two freight elevators &mdash; easy moves, easy deliveries.'},
+  {n:'03',title:'68 Desks',desc:'Configured for 68 workstations today, with room to densify well beyond that.'},
+  {n:'04',title:'Four Elevators',desc:'Two passenger cabs plus two freight elevators &mdash; easy moves, easy deliveries.'},
   {n:'05',title:'High Ceilings',desc:'Generous ceiling heights give the full floor an open, airy feel throughout.'},
   {n:'06',title:'Oversized Windows',desc:'Walls of oversized windows pull Flatiron light deep into the floor plate.'},
   {n:'07',title:'6 Conference Rooms',desc:'Six dedicated conference rooms &mdash; glass-walled, wired, ready for meetings.'},
@@ -928,6 +963,18 @@ var HIGHLIGHTS=[
   plan.addEventListener('click',function(){lbImg.src=plan.src;lb.classList.add('open');});
   lb.addEventListener('click',function(){lb.classList.remove('open');});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('open');});
+})();
+
+/* ===== MOBILE NAV BURGER ===== */
+(function(){
+  var burger=document.getElementById('navBurger');
+  var menu=document.getElementById('navMobile');
+  if(!burger||!menu)return;
+  function close(){menu.classList.remove('open');burger.classList.remove('open');burger.setAttribute('aria-expanded','false');document.body.style.overflow='';}
+  function open(){menu.classList.add('open');burger.classList.add('open');burger.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
+  burger.addEventListener('click',function(){if(menu.classList.contains('open'))close();else open();});
+  menu.addEventListener('click',function(e){if(e.target.tagName==='A')close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
 })();
 
 /* ===== SMOOTH ANCHOR ===== */
