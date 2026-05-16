@@ -7,658 +7,635 @@
 <meta name="description" content="11,498 RSF furnished, plug-and-play full floor in the heart of the Flatiron District, NYC. Move-in ready, 68 desks, high ceilings, oversized windows.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800;9..144,900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* ===== RESET & BASE ===== */
+/* ===== TOKENS ===== */
+:root{
+  --bg:#fafaf7;
+  --surface:#ffffff;
+  --ink:#14110d;
+  --ink-2:#3a3530;
+  --ink-3:#7a7570;
+  --ink-4:#b8b4af;
+  --rule:#e6e3dd;
+  --rule-2:#efece6;
+  --green:#2d5a3d;
+  --green-2:#3a7250;
+  --green-3:#e4ece5;
+  --shadow:0 1px 3px rgba(20,17,13,0.04), 0 8px 28px rgba(20,17,13,0.06);
+  --shadow-lg:0 4px 12px rgba(20,17,13,0.06), 0 24px 60px rgba(20,17,13,0.10);
+}
+
+/* ===== RESET + BASE ===== */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:hidden;-webkit-text-size-adjust:100%}
 body{
-  background:#0a0a0a;color:#fff;
-  font-family:'Montserrat',sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:16px;line-height:1.6;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
-  -webkit-overflow-scrolling:touch;
 }
-::selection{background:#2D8CFF;color:#fff}
-a{color:#2D8CFF;text-decoration:none}
-a:hover{color:#4DA3FF}
+::selection{background:var(--green);color:#fff}
+a{color:var(--green);text-decoration:none;transition:color .25s}
+a:hover{color:var(--green-2)}
 img{display:block;max-width:100%}
 
 @media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
   html{scroll-behavior:auto}
 }
 
 /* ===== NAV ===== */
 .nav{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  padding:18px 50px;
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:22px 56px;
   display:flex;align-items:center;justify-content:space-between;
-  background:rgba(10,10,10,0);
-  backdrop-filter:blur(0px);
-  transition:all 0.4s ease;
+  background:rgba(250,250,247,0);
+  border-bottom:1px solid transparent;
+  transition:background .35s, border-color .35s, padding .35s, backdrop-filter .35s;
 }
 .nav.scrolled{
-  background:rgba(10,10,10,0.92);
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
-  border-bottom:1px solid #222;
-  padding:14px 50px;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom-color:var(--rule);
+  padding:14px 56px;
 }
 .nav-brand{
-  font-family:'Playfair Display',serif;font-weight:700;font-size:20px;
-  opacity:0;transition:opacity 0.4s;
+  font-family:'Fraunces',Georgia,serif;
+  font-weight:600;font-size:19px;letter-spacing:-.01em;
+  color:var(--ink);
+  opacity:0;transition:opacity .35s;
 }
 .nav.scrolled .nav-brand{opacity:1}
-.nav-brand span{color:#2D8CFF}
-.nav-links{display:flex;gap:28px;align-items:center}
+.nav-brand em{font-style:italic;color:var(--green);font-weight:500}
+.nav-links{display:flex;gap:32px;align-items:center}
 .nav-links a{
-  font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;
-  color:#888;transition:color 0.3s;
+  font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-2);
 }
-.nav-links a:hover{color:#fff}
+.nav-links a:hover{color:var(--green)}
 .nav-cta{
-  background:#2D8CFF;color:#fff!important;padding:10px 28px;border-radius:4px;
-  font-size:11px;font-weight:700;letter-spacing:2px;
-  transition:all 0.3s;
+  background:var(--green);color:#fff!important;
+  padding:10px 22px;border-radius:999px;
+  font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  transition:background .25s, transform .25s, box-shadow .25s;
 }
-.nav-cta:hover{background:#4DA3FF;transform:translateY(-1px);box-shadow:0 4px 20px rgba(45,140,255,0.3)}
+.nav-cta:hover{background:var(--green-2);color:#fff!important;transform:translateY(-1px);box-shadow:0 6px 18px rgba(45,90,61,.25)}
 
-/* ===== SATELLITE ZOOM OPENING ===== */
-.opening{
-  position:fixed;top:0;left:0;width:100%;height:100%;height:100dvh;z-index:900;
-  background:#0a0a0a;
-  display:flex;align-items:center;justify-content:center;
-  transition:opacity 0.8s ease;
-  pointer-events:auto;cursor:pointer;
+/* ===== HERO (editorial split) ===== */
+.hero{
+  position:relative;
+  min-height:100vh;min-height:100dvh;
+  display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);
+  background:var(--bg);
 }
-.opening.done{opacity:0;pointer-events:none}
-.opening-content{text-align:center;position:relative}
-.zoom-label{
-  font-family:'Montserrat',sans-serif;font-weight:700;
-  letter-spacing:8px;text-transform:uppercase;
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  opacity:0;font-size:14px;color:#888;
-  transition:all 0.6s ease;
-}
-.zoom-label.show{opacity:1}
-.zoom-label.hide{opacity:0;transform:translate(-50%,-50%) scale(2)}
-.zoom-label.large{font-size:clamp(20px,4vw,36px);color:#fff;letter-spacing:12px}
-.zoom-grid{
-  width:400px;height:400px;position:relative;
-  opacity:0.15;transition:all 1.5s ease;
-}
-.zoom-grid.zoomed{transform:scale(8);opacity:0}
-.grid-line{position:absolute;background:#2D8CFF20}
-.grid-line.h{width:100%;height:1px}
-.grid-line.v{height:100%;width:1px}
-.grid-dot{
-  position:absolute;width:6px;height:6px;border-radius:50%;
-  background:#2D8CFF;
-  animation:pulse-dot 2s infinite;
-}
-@keyframes pulse-dot{0%,100%{opacity:0.3;transform:scale(1)}50%{opacity:1;transform:scale(1.5)}}
-.opening-skip{
-  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
-  font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#555;
-}
-
-/* ===== HERO ===== */
-.hero{position:relative;width:100%;height:100vh;height:100dvh;overflow:hidden}
-.hero-bg{
-  position:absolute;top:0;left:0;right:0;bottom:0;
-  display:grid;grid-template-columns:1fr 1.5fr;
-}
-.hero-bg img{width:100%;height:100%;object-fit:cover}
-.hero-overlay{
-  position:absolute;top:0;left:0;right:0;bottom:0;
-  background:linear-gradient(180deg,rgba(0,0,0,0.35) 0%,rgba(0,0,0,0.55) 40%,rgba(0,0,0,0.88) 100%);
-}
-.hero-content{
-  position:relative;z-index:2;
-  height:100%;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;text-align:center;
-  padding:0 40px;
-}
-.hero-content>*{
-  opacity:0;transform:translateY(30px);
-  transition:all 0.8s cubic-bezier(0.16,1,0.3,1);
-}
-.hero-content.visible>*{opacity:1;transform:translateY(0)}
-.hero-content>*:nth-child(1){transition-delay:0.1s}
-.hero-content>*:nth-child(2){transition-delay:0.3s}
-.hero-content>*:nth-child(3){transition-delay:0.5s}
-.hero-content>*:nth-child(4){transition-delay:0.8s}
-.hero-content>*:nth-child(5){transition-delay:1.0s}
-.hero-address{
-  font-family:'Playfair Display',serif;font-weight:900;
-  font-size:clamp(50px,10vw,130px);line-height:1;letter-spacing:-2px;
-  text-shadow:0 0 100px rgba(45,140,255,0.15);
-}
-.hero-street{
-  font-family:'Playfair Display',serif;font-weight:700;
-  font-size:clamp(20px,4vw,46px);letter-spacing:5px;margin-top:8px;
-}
-.hero-tagline{
-  font-weight:800;font-size:clamp(11px,1.5vw,16px);
-  color:#2D8CFF;letter-spacing:6px;text-transform:uppercase;margin-top:50px;
-}
-.hero-sub{
-  font-weight:400;font-size:clamp(12px,1.2vw,15px);
-  color:#aaa;letter-spacing:4px;text-transform:uppercase;margin-top:12px;
-}
-.hero-stats{display:flex;gap:40px;margin-top:50px}
-.hero-stat{text-align:center}
-.hero-stat-num{
-  font-family:'Playfair Display',serif;font-weight:900;
-  font-size:clamp(28px,4vw,48px);color:#2D8CFF;
-}
-.hero-stat-label{
-  font-size:10px;font-weight:600;letter-spacing:3px;
-  text-transform:uppercase;color:#888;margin-top:6px;
-}
-.scroll-indicator{
-  position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:2;
-  display:flex;flex-direction:column;align-items:center;gap:8px;
-  animation:float 3s ease-in-out infinite;
-}
-.scroll-indicator span{
-  display:block;width:24px;height:40px;border:2px solid #555;border-radius:12px;
+.hero-text{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:140px 64px 80px;
   position:relative;
 }
-.scroll-indicator span::after{
-  content:'';position:absolute;top:8px;left:50%;transform:translateX(-50%);
-  width:3px;height:8px;background:#2D8CFF;border-radius:2px;
-  animation:scroll-dot 2s infinite;
+.hero-eyebrow{
+  font-size:11px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--green);
+  margin-bottom:28px;
+  display:flex;align-items:center;gap:14px;
+  opacity:0;transform:translateY(10px);transition:all .8s cubic-bezier(.16,1,.3,1) .1s;
 }
-.scroll-indicator small{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#555}
-@keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
-@keyframes scroll-dot{0%{opacity:1;top:8px}100%{opacity:0;top:24px}}
+.hero-eyebrow::before{content:'';display:block;width:38px;height:1px;background:var(--green)}
+.hero-eyebrow.in{opacity:1;transform:translateY(0)}
+.hero-address{
+  font-family:'Fraunces',Georgia,serif;
+  font-variation-settings:"opsz" 144;
+  font-weight:400;
+  font-size:clamp(56px,7.6vw,108px);
+  line-height:.95;letter-spacing:-.03em;
+  color:var(--ink);
+  opacity:0;transform:translateY(20px);transition:all 1s cubic-bezier(.16,1,.3,1) .25s;
+}
+.hero-address em{font-style:italic;font-weight:300;color:var(--green)}
+.hero-street{
+  font-family:'Fraunces',Georgia,serif;
+  font-weight:400;font-style:italic;
+  font-size:clamp(18px,2vw,26px);
+  color:var(--ink-2);
+  margin-top:18px;letter-spacing:.01em;
+  opacity:0;transform:translateY(20px);transition:all 1s cubic-bezier(.16,1,.3,1) .4s;
+}
+.hero-tagline{
+  font-size:13px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-2);
+  margin-top:42px;line-height:1.7;
+  max-width:380px;
+  opacity:0;transform:translateY(20px);transition:all 1s cubic-bezier(.16,1,.3,1) .55s;
+}
+.hero-tagline span{color:var(--ink-4);margin:0 8px}
+.hero-stats{
+  display:flex;gap:48px;margin-top:60px;padding-top:40px;
+  border-top:1px solid var(--rule);
+  opacity:0;transform:translateY(20px);transition:all 1s cubic-bezier(.16,1,.3,1) .7s;
+}
+.hero-stat-num{
+  font-family:'Fraunces',Georgia,serif;font-weight:400;
+  font-size:clamp(32px,3.4vw,44px);line-height:1;color:var(--ink);
+  letter-spacing:-.02em;
+}
+.hero-stat-label{
+  font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-3);margin-top:10px;
+}
+.hero.in .hero-eyebrow,.hero.in .hero-address,.hero.in .hero-street,
+.hero.in .hero-tagline,.hero.in .hero-stats{opacity:1;transform:translateY(0)}
+.hero-image{position:relative;overflow:hidden;background:#e6e3dd}
+.hero-image img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-image::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(250,250,247,.3) 0%,transparent 14%);
+  pointer-events:none;
+}
+.scroll-cue{
+  position:absolute;left:64px;bottom:36px;
+  font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--ink-3);display:flex;align-items:center;gap:10px;
+  opacity:0;transition:opacity 1s ease 1.2s;
+}
+.hero.in .scroll-cue{opacity:1}
+.scroll-cue::after{
+  content:'';display:block;width:34px;height:1px;background:var(--ink-4);
+  animation:scroll-line 2.4s ease-in-out infinite;
+}
+@keyframes scroll-line{0%,100%{transform:translateX(0);opacity:.6}50%{transform:translateX(8px);opacity:1}}
 
 /* ===== SECTIONS ===== */
 .scene{
-  min-height:60vh;
-  max-width:1200px;margin:0 auto;
-  padding:120px 60px;
+  max-width:1240px;margin:0 auto;
+  padding:140px 60px;
   position:relative;
 }
-.scene-divider{width:60px;height:2px;background:#2D8CFF;margin:0 auto}
+.scene-full{max-width:none;padding:140px 0}
 .scene-label{
-  font-weight:600;font-size:11px;letter-spacing:6px;
-  text-transform:uppercase;color:#2D8CFF;margin-bottom:20px;
+  display:flex;align-items:center;gap:14px;
+  font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--green);margin-bottom:24px;
 }
+.scene-label::before{content:'';display:block;width:24px;height:1px;background:var(--green)}
 .scene-title{
-  font-family:'Playfair Display',serif;font-weight:700;
-  font-size:clamp(32px,5vw,52px);line-height:1.15;margin-bottom:30px;
+  font-family:'Fraunces',Georgia,serif;
+  font-variation-settings:"opsz" 144;
+  font-weight:400;
+  font-size:clamp(36px,5vw,64px);line-height:1.05;letter-spacing:-.02em;
+  color:var(--ink);
+  max-width:880px;
 }
-.center{text-align:center}
-.center .scene-divider{margin-bottom:30px}
+.scene-title em{font-style:italic;font-weight:300;color:var(--green)}
+.scene-sub{
+  font-size:17px;color:var(--ink-2);line-height:1.75;
+  max-width:680px;margin-top:24px;
+}
 
-/* Scroll reveal */
-.reveal{opacity:0;transform:translateY(40px);transition:all 0.9s cubic-bezier(0.16,1,0.3,1)}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-delay-1{transition-delay:0.15s}
-.reveal-delay-2{transition-delay:0.3s}
-.reveal-delay-3{transition-delay:0.45s}
+/* Reveal */
+.reveal{opacity:0;transform:translateY(30px);transition:all .9s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.r-d1{transition-delay:.12s}.r-d2{transition-delay:.24s}.r-d3{transition-delay:.36s}
 
 /* ===== OVERVIEW ===== */
-.opp-text{
-  font-size:clamp(16px,1.8vw,22px);line-height:2;color:#999;max-width:850px;
+.opp-grid{
+  display:grid;grid-template-columns:1.4fr 1fr;gap:80px;align-items:start;
+  margin-top:48px;
 }
-.opp-text strong{color:#fff;font-weight:600}
-.opp-text .hl{color:#2D8CFF;font-weight:700}
-
-/* ===== COUNTER ===== */
-.counter-wrap{text-align:center;padding:40px 0 10px}
-.counter{
-  font-family:'Playfair Display',serif;font-weight:900;
-  font-size:clamp(56px,10vw,120px);color:#2D8CFF;line-height:1;
+.opp-prose{
+  font-family:'Fraunces',Georgia,serif;
+  font-weight:300;font-size:clamp(20px,1.7vw,26px);line-height:1.55;color:var(--ink-2);
+  letter-spacing:-.005em;
+}
+.opp-prose strong{color:var(--ink);font-weight:500}
+.opp-prose em.hl{color:var(--green);font-style:italic;font-weight:400}
+.counter-card{
+  background:var(--surface);border:1px solid var(--rule);border-radius:18px;
+  padding:48px 40px;text-align:center;
+  box-shadow:var(--shadow);
+}
+.counter-num{
+  font-family:'Fraunces',Georgia,serif;font-weight:400;
+  font-variation-settings:"opsz" 144;
+  font-size:clamp(56px,7vw,92px);line-height:1;
+  color:var(--green);letter-spacing:-.03em;
 }
 .counter-label{
-  font-size:12px;font-weight:600;letter-spacing:5px;text-transform:uppercase;
-  color:#888;margin-top:14px;
+  font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ink-3);margin-top:18px;
 }
+.counter-sub{font-size:13px;color:var(--ink-2);margin-top:14px;line-height:1.6}
 
-/* ===== BUILDING EXPLORER ===== */
-.explorer-wrapper{
-  display:grid;grid-template-columns:240px 1fr 300px;gap:0;
-  border:1px solid #222;border-radius:16px;overflow:hidden;
-  min-height:560px;position:relative;
+/* ===== THE FLOOR ===== */
+.floor-card{
+  background:var(--surface);border-radius:24px;
+  box-shadow:var(--shadow-lg);
+  margin-top:56px;overflow:hidden;
+  display:grid;grid-template-columns:1fr 1.3fr;
 }
-.building-col{
-  background:#111;display:flex;flex-direction:column;align-items:center;
-  padding:24px 0;position:relative;
+.floor-card-meta{padding:64px 56px;display:flex;flex-direction:column;justify-content:center}
+.floor-id{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--green);margin-bottom:24px;
 }
-.building-svg-wrapper{width:150px;display:flex;flex-direction:column;height:100%}
-.bld-roof{width:150px;height:12px;flex-shrink:0;background:#88888870;border-bottom:2px solid #88888890;border-radius:4px 4px 0 0}
-.bld-floor{
-  flex:1;width:150px;min-height:30px;
-  border-left:3px solid #88888870;border-right:3px solid #88888870;
-  display:flex;align-items:center;justify-content:center;gap:5px;
-  transition:all 0.3s;cursor:pointer;
+.floor-id::before{content:'';display:block;width:18px;height:1px;background:var(--green)}
+.floor-h{
+  font-family:'Fraunces',Georgia,serif;font-weight:400;
+  font-variation-settings:"opsz" 144;
+  font-size:clamp(40px,4.4vw,60px);line-height:1.05;letter-spacing:-.02em;
 }
-.bld-floor:hover,.bld-floor.active{background:rgba(45,140,255,0.14)}
-.bld-floor.is-available{background:rgba(39,174,96,0.10)}
-.bld-floor.is-available.active,.bld-floor.is-available:hover{background:rgba(39,174,96,0.22)}
-.bld-floor-gnd{background:rgba(255,255,255,0.55);border-bottom:2px solid #88888860;border-radius:0 0 3px 3px}
-.bld-window{
-  width:13px;height:52%;background:#fff;border:1px solid #fff;border-radius:1px;
-  transition:all 0.3s;
+.floor-h em{font-style:italic;color:var(--green);font-weight:300}
+.floor-specs{
+  list-style:none;display:flex;flex-direction:column;
+  margin-top:32px;border-top:1px solid var(--rule-2);
 }
-.bld-floor:hover .bld-window,.bld-floor.active .bld-window{
-  background:#2D8CFF;border-color:#2D8CFF;box-shadow:0 0 8px rgba(45,140,255,0.5);
+.floor-specs li{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding:18px 0;border-bottom:1px solid var(--rule-2);
+  font-size:14px;
 }
-.bld-floor.is-available .bld-window{background:#27ae60;border-color:#27ae60}
-.bld-floor.is-available.active .bld-window,.bld-floor.is-available:hover .bld-window{box-shadow:0 0 8px rgba(39,174,96,0.6)}
-.bld-floor-gnd .bld-window{background:#888;border-color:#888}
-.floor-table{display:flex;flex-direction:column;border-left:1px solid #222}
-.floor-row{
-  display:grid;grid-template-columns:60px 1fr 130px;
-  align-items:center;padding:0 22px;flex:1;min-height:42px;
-  border-bottom:1px solid #1c1c1c;
-  transition:all 0.3s;cursor:pointer;
+.floor-specs .k{color:var(--ink-3);text-transform:uppercase;letter-spacing:.14em;font-size:11px;font-weight:600}
+.floor-specs .v{color:var(--ink);font-weight:500;text-align:right}
+.floor-status{
+  margin-top:32px;display:inline-flex;align-items:center;gap:10px;
+  padding:10px 18px;border-radius:999px;
+  background:var(--green-3);color:var(--green);
+  font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  align-self:flex-start;
 }
-.floor-row:hover,.floor-row.active{background:rgba(45,140,255,0.06)}
-.floor-row.is-available:hover,.floor-row.is-available.active{background:rgba(39,174,96,0.07)}
-.floor-row:last-child{border-bottom:none}
-.floor-num{font-family:'Playfair Display',serif;font-weight:700;font-size:20px}
-.floor-info{padding:0 12px}
-.floor-rsf{font-weight:700;font-size:14px}
-.floor-ceil{font-size:11px;color:#888;margin-top:2px}
-.status-badge{
-  display:inline-block;width:120px;padding:5px 0;text-align:center;
-  font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;
-  border-radius:4px;
+.floor-status::before{
+  content:'';display:block;width:7px;height:7px;border-radius:50%;background:var(--green);
+  box-shadow:0 0 0 4px rgba(45,90,61,.15);
+  animation:pulse-dot 2.2s ease-in-out infinite;
 }
-.badge-inquire{background:#88888818;color:#999;border:1px solid #88888835}
-.badge-available{
-  background:rgba(39,174,96,0.15);color:#27ae60;border:1px solid rgba(39,174,96,0.3);
-  animation:glow-green 2s infinite;
-}
-@keyframes glow-green{0%,100%{box-shadow:0 0 0 rgba(39,174,96,0)}50%{box-shadow:0 0 12px rgba(39,174,96,0.3)}}
-.floor-detail-panel{
-  background:#111;border-left:1px solid #222;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:40px 30px;text-align:center;transition:all 0.3s;
-}
-.fdp-floor{font-family:'Playfair Display',serif;font-weight:900;font-size:64px;color:#2D8CFF;line-height:1}
-.fdp-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#888;margin-top:8px}
-.fdp-rsf{font-family:'Playfair Display',serif;font-weight:700;font-size:30px;margin-top:22px}
-.fdp-ceiling{font-size:13px;color:#888;margin-top:10px;line-height:1.5}
-.fdp-status{margin-top:22px}
-.explorer-caption{
-  text-align:center;font-size:12px;color:#666;margin-top:20px;letter-spacing:0.5px;
-}
+@keyframes pulse-dot{0%,100%{box-shadow:0 0 0 4px rgba(45,90,61,.15)}50%{box-shadow:0 0 0 8px rgba(45,90,61,.05)}}
+.floor-card-img{position:relative;background:#e6e3dd;min-height:380px;overflow:hidden}
+.floor-card-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.floor-note{text-align:center;font-size:13px;color:var(--ink-3);margin-top:28px;font-style:italic}
 
-/* ===== ENVISION TOGGLE ===== */
-.envision-stack{display:flex;flex-direction:column;gap:60px;margin-top:20px}
-.toggle-card{
-  display:grid;grid-template-columns:1.4fr 1fr;gap:50px;align-items:center;
+/* ===== ENVISION GALLERY ===== */
+.envision-stack{display:flex;flex-direction:column;gap:96px;margin-top:64px}
+.env-feature{
+  display:grid;grid-template-columns:1fr;gap:0;
+  border-radius:18px;overflow:hidden;
+  box-shadow:var(--shadow);background:var(--surface);
 }
-.toggle-card:nth-child(even){grid-template-columns:1fr 1.4fr}
-.toggle-card:nth-child(even) .toggle-stage{order:2}
-.toggle-stage{
-  position:relative;border-radius:14px;overflow:hidden;
-  border:1px solid #222;aspect-ratio:3/2;background:#111;
+.env-feature img{width:100%;height:auto;display:block}
+.env-feature .env-caption{padding:32px 40px}
+.env-feature .env-eyebrow,.env-pair-text .env-eyebrow{
+  font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--green);margin-bottom:14px;
+  display:flex;align-items:center;gap:12px;
 }
-.toggle-stage img{
-  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-  opacity:0;transition:opacity 0.55s ease;
+.env-feature .env-eyebrow::before,.env-pair-text .env-eyebrow::before{content:'';display:block;width:22px;height:1px;background:var(--green)}
+.env-feature .env-h{
+  font-family:'Fraunces',Georgia,serif;font-weight:400;
+  font-size:clamp(22px,2.4vw,32px);line-height:1.15;letter-spacing:-.01em;color:var(--ink);
 }
-.toggle-stage img.shown{opacity:1}
-.toggle-tag{
-  position:absolute;top:14px;left:14px;z-index:3;
-  font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  padding:6px 12px;border-radius:4px;
-  background:rgba(45,140,255,0.92);color:#fff;
+.env-feature .env-h em{font-style:italic;color:var(--green);font-weight:300}
+.env-feature .env-body{margin-top:10px;font-size:14px;color:var(--ink-2);line-height:1.65;max-width:62ch}
+.env-row{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
+.env-row.reverse{grid-template-columns:1fr 1.05fr}
+.env-row.reverse .env-stage{order:2}
+.env-stage{border-radius:18px;overflow:hidden;box-shadow:var(--shadow);background:var(--surface)}
+.env-stage img{width:100%;display:block;height:auto}
+.env-pair-text .env-h{
+  font-family:'Fraunces',Georgia,serif;font-weight:400;
+  font-variation-settings:"opsz" 144;
+  font-size:clamp(28px,3vw,40px);line-height:1.1;letter-spacing:-.02em;color:var(--ink);
 }
-.toggle-tag.asis{background:rgba(20,20,20,0.85);color:#bbb;border:1px solid #333}
-.toggle-info .scene-label{margin-bottom:14px}
-.toggle-info h3{
-  font-family:'Playfair Display',serif;font-weight:700;
-  font-size:clamp(24px,3vw,34px);margin-bottom:16px;
-}
-.toggle-info p{font-size:14px;color:#999;line-height:1.8;margin-bottom:24px}
-.toggle-switch{
-  display:inline-flex;border:1px solid #2a2a2a;border-radius:6px;overflow:hidden;
-}
-.toggle-btn{
-  padding:11px 22px;font-size:11px;font-weight:700;letter-spacing:1.5px;
-  text-transform:uppercase;background:#111;color:#777;border:none;cursor:pointer;
-  transition:all 0.3s;
-}
-.toggle-btn.active{background:#2D8CFF;color:#fff}
-.toggle-btn.active.asis{background:#2a2a2a;color:#fff}
-.toggle-btn:hover:not(.active){color:#fff}
+.env-pair-text .env-h em{font-style:italic;color:var(--green);font-weight:300}
+.env-pair-text .env-body{margin-top:20px;font-size:16px;color:var(--ink-2);line-height:1.75;max-width:42ch}
 
-/* ===== HIGHLIGHTS GRID ===== */
-.highlights-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+/* ===== HIGHLIGHTS ===== */
+.highlights-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;
+  margin-top:56px;
+}
 .hcard{
-  background:#111;border:1px solid #222;border-radius:12px;
-  padding:32px 28px;overflow:hidden;cursor:pointer;
-  transition:all 0.4s cubic-bezier(0.16,1,0.3,1);position:relative;
+  background:var(--surface);border:1px solid var(--rule);border-radius:14px;
+  padding:30px 28px;
+  transition:transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s, border-color .35s;
 }
-.hcard::before{
-  content:'';position:absolute;top:0;left:0;width:3px;height:100%;
-  background:#2D8CFF;transition:width 0.3s;
+.hcard:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:var(--rule-2)}
+.hcard-num{
+  font-family:'Fraunces',Georgia,serif;font-weight:300;font-style:italic;
+  font-size:36px;line-height:1;color:var(--green);
+  display:block;margin-bottom:14px;letter-spacing:-.02em;
 }
-.hcard:hover{border-color:#2D8CFF40;transform:translateY(-3px);box-shadow:0 10px 40px rgba(0,0,0,0.3)}
-.hcard:hover::before{width:5px}
-.hcard-icon{font-size:26px;margin-bottom:14px}
 .hcard-title{
-  font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;
+  font-family:'Fraunces',Georgia,serif;font-weight:500;
+  font-size:18px;color:var(--ink);margin-bottom:8px;letter-spacing:-.005em;
 }
-.hcard-desc{
-  font-size:13px;color:#888;line-height:1.6;
-  max-height:0;overflow:hidden;transition:max-height 0.5s ease,opacity 0.3s;opacity:0;
+.hcard-desc{font-size:13.5px;color:var(--ink-2);line-height:1.65}
+
+/* ===== TODAY (as-is carousel) ===== */
+.today-wrap{position:relative;overflow:hidden;border-radius:18px;background:#1f1d19}
+.today-track{display:flex;transition:transform .65s cubic-bezier(.16,1,.3,1)}
+.today-slide{min-width:100%;position:relative}
+.today-slide img{width:100%;height:clamp(380px,60vh,640px);object-fit:cover;display:block}
+.today-cap{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:60px 50px 36px;color:#fff;
+  background:linear-gradient(180deg,transparent,rgba(0,0,0,.78));
 }
-.hcard.open .hcard-desc{max-height:200px;opacity:1;margin-top:4px}
+.today-cap-eyebrow{
+  font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(255,255,255,.7);margin-bottom:8px;
+}
+.today-cap h4{
+  font-family:'Fraunces',Georgia,serif;font-weight:400;
+  font-size:clamp(22px,2.4vw,32px);line-height:1.15;letter-spacing:-.01em;
+}
+.today-cap p{font-size:14px;color:rgba(255,255,255,.78);margin-top:6px;max-width:60ch}
+.today-nav{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:3}
+.today-dot{
+  width:32px;height:3px;border-radius:2px;background:rgba(255,255,255,.3);
+  cursor:pointer;border:none;padding:0;transition:background .25s;
+}
+.today-dot.active{background:#fff}
+.today-arrows{
+  position:absolute;top:50%;left:0;right:0;
+  display:flex;justify-content:space-between;padding:0 18px;
+  transform:translateY(-50%);pointer-events:none;z-index:3;
+}
+.today-arrow{
+  width:44px;height:44px;border-radius:50%;
+  background:rgba(255,255,255,.92);color:#14110d;border:none;
+  font-size:18px;cursor:pointer;pointer-events:auto;
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .25s, background .25s;
+}
+.today-arrow:hover{background:#fff;transform:scale(1.05)}
 
 /* ===== FLOOR PLAN ===== */
-.plan-viewer{position:relative;max-width:820px;margin:0 auto;background:#fff;border-radius:10px;padding:20px}
-.plan-img{width:100%;display:block;border-radius:4px;cursor:zoom-in}
-.plan-hint{text-align:center;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#666;margin-top:18px}
+.plan-frame{
+  background:var(--surface);border-radius:18px;padding:24px;
+  box-shadow:var(--shadow);margin-top:48px;
+}
+.plan-img{width:100%;display:block;border-radius:8px;cursor:zoom-in}
+.plan-hint{
+  text-align:center;font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-3);margin-top:18px;
+}
 .lightbox{
-  position:fixed;top:0;left:0;width:100%;height:100%;z-index:2000;
-  background:rgba(0,0,0,0.95);display:none;align-items:center;justify-content:center;cursor:zoom-out;
+  position:fixed;inset:0;z-index:2000;
+  background:rgba(20,17,13,.92);
+  display:none;align-items:center;justify-content:center;cursor:zoom-out;padding:24px;
 }
 .lightbox.open{display:flex}
-.lightbox img{max-width:92%;max-height:92%;object-fit:contain;background:#fff;border-radius:6px}
+.lightbox img{max-width:96%;max-height:96%;object-fit:contain;background:#fff;border-radius:8px}
 
-/* ===== CAROUSEL ===== */
-.carousel-wrapper{position:relative;overflow:hidden;border-radius:16px;border:1px solid #222}
-.carousel-track{display:flex;transition:transform 0.6s cubic-bezier(0.16,1,0.3,1)}
-.carousel-slide{min-width:100%;position:relative;background:#111}
-.carousel-slide img{width:100%;height:clamp(360px,58vh,620px);object-fit:cover}
-.carousel-caption{
-  position:absolute;left:0;right:0;bottom:0;
-  padding:60px 50px 36px;
-  background:linear-gradient(180deg,transparent,rgba(0,0,0,0.85));
+/* ===== FLATIRON ===== */
+.pills-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:40px}
+.pill{
+  padding:11px 22px;border-radius:999px;border:1px solid var(--rule);
+  font-size:13px;font-weight:500;color:var(--ink-2);background:var(--surface);
+  transition:all .25s;
 }
-.carousel-caption h4{
-  font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(20px,2.4vw,30px);
+.pill:hover{border-color:var(--green);color:var(--green);transform:translateY(-2px);box-shadow:var(--shadow)}
+.transit-label{
+  font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ink-3);margin-top:48px;text-align:center;
 }
-.carousel-caption p{font-size:13px;color:#bbb;margin-top:6px;letter-spacing:0.5px}
-.carousel-nav{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:5}
-.carousel-dot{width:9px;height:9px;border-radius:50%;background:#444;cursor:pointer;transition:all 0.3s;border:none}
-.carousel-dot.active{background:#2D8CFF;transform:scale(1.3)}
-.carousel-arrows{
-  position:absolute;top:50%;width:100%;display:flex;justify-content:space-between;
-  padding:0 20px;transform:translateY(-50%);z-index:5;pointer-events:none;
-}
-.carousel-arrow{
-  width:48px;height:48px;border-radius:50%;background:rgba(0,0,0,0.6);
-  border:1px solid #333;color:#fff;font-size:20px;cursor:pointer;
+.subway-row{display:flex;gap:12px;justify-content:center;margin-top:22px;flex-wrap:wrap}
+.sub{
+  width:40px;height:40px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
-  pointer-events:auto;transition:all 0.3s;
+  font-weight:800;font-size:15px;color:#fff;
+  transition:transform .25s, box-shadow .25s;
+  box-shadow:0 2px 8px rgba(20,17,13,.15);
 }
-.carousel-arrow:hover{background:#2D8CFF;border-color:#2D8CFF}
+.sub:hover{transform:scale(1.18);box-shadow:0 6px 18px rgba(20,17,13,.22)}
 
-/* ===== NEIGHBORHOOD ===== */
-.neighborhood-pills{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:30px}
-.npill{
-  padding:10px 20px;border-radius:30px;border:1px solid #333;
-  font-size:12px;font-weight:600;letter-spacing:1px;color:#999;transition:all 0.3s;
-}
-.npill:hover{border-color:#2D8CFF;color:#2D8CFF;transform:translateY(-2px)}
-.subway-badges{display:flex;gap:12px;justify-content:center;margin-top:30px;flex-wrap:wrap}
-.subway-badge{
-  width:38px;height:38px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-weight:800;font-size:15px;color:#fff;transition:transform 0.3s;
-}
-.subway-badge:hover{transform:scale(1.18)}
-
-/* ===== CONTACT / FOOTER ===== */
+/* ===== CONTACT ===== */
 .contact{text-align:center}
-.contact-headline{
-  font-family:'Playfair Display',serif;font-weight:700;
-  font-size:clamp(28px,4.5vw,48px);line-height:1.2;margin-bottom:24px;
+.contact-h{
+  font-family:'Fraunces',Georgia,serif;font-weight:400;
+  font-variation-settings:"opsz" 144;
+  font-size:clamp(36px,5.2vw,68px);line-height:1.05;letter-spacing:-.02em;
+  color:var(--ink);
 }
-.contact-sub{font-size:15px;color:#999;max-width:560px;margin:0 auto 50px;line-height:1.7}
-.footer-brokers{display:flex;gap:70px;justify-content:center;flex-wrap:wrap;margin-bottom:60px}
-.footer-broker-name{font-weight:700;font-size:17px;margin-bottom:6px}
-.footer-broker-role{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#2D8CFF;margin-bottom:12px}
-.footer-broker-phone{font-size:14px;color:#aaa;margin-bottom:4px}
-.footer-broker-phone a{color:#aaa}
-.footer-broker-phone a:hover{color:#fff}
-.footer-broker-email a{font-size:14px}
-.site-footer{
-  max-width:1200px;margin:0 auto;padding:40px 60px 60px;
-  display:flex;align-items:center;justify-content:space-between;
-  border-top:1px solid #222;
+.contact-h em{font-style:italic;color:var(--green);font-weight:300}
+.contact-sub{font-size:17px;color:var(--ink-2);line-height:1.7;max-width:560px;margin:24px auto 56px}
+.brokers{display:flex;gap:56px;justify-content:center;flex-wrap:wrap}
+.broker{
+  background:var(--surface);border:1px solid var(--rule);border-radius:18px;
+  padding:36px 40px;min-width:280px;text-align:left;
+  transition:transform .25s, box-shadow .25s, border-color .25s;
 }
-.footer-logo img{width:130px;opacity:0.95}
-.footer-fine{font-size:11px;color:#555;line-height:1.7;max-width:480px;text-align:right}
+.broker:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:var(--rule-2)}
+.broker-name{
+  font-family:'Fraunces',Georgia,serif;font-weight:500;
+  font-size:22px;color:var(--ink);margin-bottom:4px;
+}
+.broker-firm{
+  font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--green);margin-bottom:18px;
+}
+.broker-phone,.broker-email{font-size:15px;line-height:1.7}
+.broker-phone a{color:var(--ink-2);font-weight:500}
+.broker-phone a:hover{color:var(--ink)}
+.broker-email a{color:var(--green);font-weight:500}
+
+/* ===== FOOTER ===== */
+.foot{margin-top:140px;border-top:1px solid var(--rule);background:var(--surface)}
+.foot-inner{
+  max-width:1240px;margin:0 auto;padding:48px 60px 56px;
+  display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;
+}
+.foot-logo img{width:120px;opacity:.95}
+.foot-fine{font-size:12px;color:var(--ink-3);line-height:1.6;max-width:520px;text-align:right}
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:1024px){
-  .explorer-wrapper{grid-template-columns:1fr}
-  .building-col,.floor-detail-panel{display:none}
-  .toggle-card,.toggle-card:nth-child(even){grid-template-columns:1fr;gap:24px}
-  .toggle-card:nth-child(even) .toggle-stage{order:0}
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-text{order:2;padding:60px 32px 80px;min-height:auto}
+  .hero-image{order:1;height:60vh;min-height:380px}
+  .scroll-cue{display:none}
+  .opp-grid,.floor-card{grid-template-columns:1fr;gap:32px}
+  .floor-card-img{min-height:300px}
+  .env-row,.env-row.reverse{grid-template-columns:1fr;gap:20px}
+  .env-row.reverse .env-stage{order:0}
 }
 @media(max-width:768px){
-  .nav{padding:12px 20px}
-  .nav.scrolled{padding:10px 20px}
+  .nav{padding:14px 22px}
+  .nav.scrolled{padding:12px 22px}
   .nav-links{display:none}
   .nav-brand{opacity:1;font-size:16px}
   .nav-cta{padding:8px 16px;font-size:10px}
-  .hero-bg{grid-template-columns:1fr}
-  .hero-bg img:first-child{display:none}
-  .hero-content{padding:80px 24px 60px}
-  .hero-address{font-size:64px}
-  .hero-street{font-size:22px;letter-spacing:2px}
-  .hero-tagline{font-size:11px;letter-spacing:3px;margin-top:30px}
-  .hero-sub{font-size:10px;letter-spacing:2px}
-  .hero-stats{gap:24px;margin-top:36px}
-  .scroll-indicator{bottom:20px}
-  .scene{padding:70px 22px;min-height:auto}
-  .scene-title{font-size:28px}
-  .opp-text{font-size:15px;line-height:1.85}
-  .counter{font-size:64px}
-  .floor-row{grid-template-columns:46px 1fr 104px;padding:0 12px}
-  .floor-num{font-size:16px}
-  .floor-rsf{font-size:12px}
-  .status-badge{width:100px;font-size:9px}
-  .toggle-info h3{font-size:22px}
-  .highlights-grid{grid-template-columns:1fr;gap:12px}
-  .hcard{padding:24px 20px}
-  .hcard-desc{max-height:200px;opacity:1;margin-top:4px}
-  .carousel-slide img{height:300px}
-  .carousel-caption{padding:40px 24px 30px}
-  .carousel-arrow{width:38px;height:38px;font-size:16px}
-  .plan-viewer{padding:12px}
-  .neighborhood-pills{gap:8px}
-  .npill{padding:8px 14px;font-size:11px}
-  .subway-badge{width:32px;height:32px;font-size:13px}
-  .footer-brokers{gap:36px}
-  .site-footer{flex-direction:column;gap:24px;text-align:center;padding:30px 22px 44px}
-  .footer-fine{text-align:center}
-  .zoom-grid{width:250px;height:250px}
-  .opening .zoom-label{font-size:12px}
-  .opening .zoom-label.large{font-size:20px}
+  .hero-text{padding:48px 24px 64px}
+  .hero-tagline{font-size:11px;letter-spacing:.1em;margin-top:32px}
+  .hero-stats{gap:28px;margin-top:40px;padding-top:32px}
+  .scene{padding:80px 24px}
+  .scene-full{padding:80px 0}
+  .scene-title{font-size:34px}
+  .opp-prose{font-size:18px}
+  .floor-card-meta{padding:40px 28px}
+  .envision-stack{gap:56px}
+  .env-feature .env-caption{padding:24px 26px}
+  .highlights-grid{grid-template-columns:1fr;gap:10px}
+  .hcard{padding:24px 22px}
+  .today-slide img{height:320px}
+  .today-cap{padding:40px 26px 28px}
+  .today-arrow{width:36px;height:36px;font-size:16px}
+  .plan-frame{padding:14px}
+  .brokers{gap:20px}
+  .broker{padding:28px 28px;min-width:0;width:100%}
+  .foot-inner{flex-direction:column;text-align:center;padding:32px 22px 40px}
+  .foot-fine{text-align:center}
 }
-@media(max-width:380px){
-  .hero-address{font-size:52px}
-  .scene{padding:56px 16px}
-  .counter{font-size:52px}
-}
+@media(max-width:380px){.hero-stats{flex-wrap:wrap;gap:22px}}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav class="nav" id="nav">
-  <div class="nav-brand"><span>22</span> West 21st</div>
+  <div class="nav-brand">22 <em>West 21st</em></div>
   <div class="nav-links">
     <a href="#overview">Overview</a>
-    <a href="#availability">Availability</a>
+    <a href="#floor">The Floor</a>
     <a href="#envision">Envision</a>
     <a href="#highlights">Highlights</a>
-    <a href="#photos">Photos</a>
-    <a href="#plan">Floor Plan</a>
+    <a href="#today">Today</a>
+    <a href="#plan">Plan</a>
     <a href="#flatiron">Flatiron</a>
   </div>
   <a href="#contact" class="nav-cta">Contact</a>
 </nav>
 
-<!-- SATELLITE ZOOM OPENING -->
-<div class="opening" id="opening">
-  <div class="opening-content">
-    <div class="zoom-grid" id="zoomGrid">
-      <div class="grid-line h" style="top:20%"></div>
-      <div class="grid-line h" style="top:40%"></div>
-      <div class="grid-line h" style="top:60%"></div>
-      <div class="grid-line h" style="top:80%"></div>
-      <div class="grid-line v" style="left:20%"></div>
-      <div class="grid-line v" style="left:40%"></div>
-      <div class="grid-line v" style="left:60%"></div>
-      <div class="grid-line v" style="left:80%"></div>
-      <div class="grid-dot" style="top:42%;left:46%"></div>
-    </div>
-    <div class="zoom-label" id="zl1">Manhattan</div>
-    <div class="zoom-label" id="zl2">Flatiron District</div>
-    <div class="zoom-label large" id="zl3">22 West 21st St</div>
-  </div>
-  <div class="opening-skip">Click to enter</div>
-</div>
-
-<!-- HERO -->
+<!-- HERO (editorial split) -->
 <section class="hero" id="hero">
-  <div class="hero-bg">
-    <img src="images/reception-asis.jpg" alt="22 West 21st Street reception">
-    <img src="images/open-office-asis.jpg" alt="22 West 21st Street open floor">
-  </div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content" id="heroContent">
-    <div class="hero-address">22 West 21</div>
-    <div class="hero-tagline">Flatiron District &nbsp;·&nbsp; Furnished &nbsp;·&nbsp; Plug-and-Play</div>
-    <div class="hero-sub">A Full Floor, Move-In Ready</div>
+  <div class="hero-text">
+    <div class="hero-eyebrow">Flatiron District &nbsp;·&nbsp; New York</div>
+    <h1 class="hero-address">22 West <em>Twenty-First</em></h1>
+    <div class="hero-street">A full floor, furnished and ready.</div>
+    <div class="hero-tagline">11,498 RSF <span>·</span> 68 Desks <span>·</span> Move-In Ready</div>
     <div class="hero-stats">
-      <div class="hero-stat"><div class="hero-stat-num">11,498</div><div class="hero-stat-label">RSF Available</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">11,498</div><div class="hero-stat-label">RSF</div></div>
       <div class="hero-stat"><div class="hero-stat-num">68</div><div class="hero-stat-label">Desks</div></div>
       <div class="hero-stat"><div class="hero-stat-num">7</div><div class="hero-stat-label">Conf. + Board</div></div>
     </div>
+    <div class="scroll-cue">Scroll</div>
   </div>
-  <div class="scroll-indicator"><span></span><small>Scroll</small></div>
+  <div class="hero-image">
+    <img src="images/render-hero.jpg" alt="22 West 21st Street — envisioned full floor">
+  </div>
 </section>
 
 <!-- OVERVIEW -->
 <section class="scene" id="overview">
   <div class="reveal"><div class="scene-label">The Opportunity</div></div>
-  <div class="reveal reveal-delay-1"><h2 class="scene-title">A full furnished floor<br>in the heart of Flatiron.</h2></div>
-  <div class="reveal reveal-delay-2">
-    <p class="opp-text">
-      <strong>22 West 21st Street</strong> offers a rare <span class="hl">full-floor</span> opportunity in one of
-      Manhattan's most sought-after submarkets. <strong>11,498 rentable square feet</strong> &mdash; fully
-      furnished, <span class="hl">plug-and-play</span>, and <strong>move-in ready</strong>. Walk in to
-      <strong>68 desks</strong> with room to densify, <strong>six conference rooms</strong>, a
-      <strong>boardroom</strong>, and <strong>eight phone booths</strong> &mdash; all served by two
-      passenger and two freight elevators. High ceilings, oversized windows, and Flatiron light throughout.
-      Below: see the floor as it stands today, and <span class="hl">envision</span> what it becomes.
-    </p>
-  </div>
-  <div class="reveal reveal-delay-2 counter-wrap">
-    <div class="counter" id="rsfCounter">0</div>
-    <div class="counter-label">Rentable Square Feet &mdash; One Full Floor</div>
+  <div class="reveal r-d1"><h2 class="scene-title">An entire <em>2nd&nbsp;floor</em> in Flatiron &mdash; furnished, plug-and-play, and ready the day you sign.</h2></div>
+  <div class="opp-grid">
+    <div class="reveal r-d2">
+      <p class="opp-prose">
+        <strong>22 West 21st Street</strong> offers a rare <em class="hl">full-floor</em>
+        opportunity in one of Manhattan's most sought-after submarkets &mdash; the entire 2nd floor,
+        <strong>11,498 rentable square feet</strong>, fully furnished and <em class="hl">move-in
+        ready</em>. Walk in to <strong>68 desks</strong> with room to densify, six conference rooms,
+        a boardroom, and eight phone booths &mdash; all served by two passenger and two freight
+        elevators. High ceilings, oversized windows, and Flatiron light throughout.
+      </p>
+    </div>
+    <div class="reveal r-d3">
+      <div class="counter-card">
+        <div class="counter-num" id="rsfCounter">11,498</div>
+        <div class="counter-label">Rentable SF</div>
+        <div class="counter-sub">One full floor, all yours.</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- AVAILABILITY / BUILDING EXPLORER -->
-<section class="scene" id="availability">
-  <div class="reveal center">
-    <div class="scene-label">Availability</div>
-    <h2 class="scene-title">The building, floor by floor.</h2>
-    <div class="scene-divider"></div>
-  </div>
-  <div class="reveal reveal-delay-1" style="margin-top:40px">
-    <div class="explorer-wrapper">
-      <div class="building-col">
-        <div class="building-svg-wrapper" id="buildingSvg">
-          <div class="bld-roof"></div>
-          <!-- floors injected by JS -->
-        </div>
+<!-- THE FLOOR -->
+<section class="scene" id="floor">
+  <div class="reveal"><div class="scene-label">The Floor</div></div>
+  <div class="reveal r-d1"><h2 class="scene-title">Built for the way teams <em>actually</em> work.</h2></div>
+  <div class="reveal r-d2">
+    <div class="floor-card">
+      <div class="floor-card-meta">
+        <div class="floor-id">2nd Floor</div>
+        <div class="floor-h"><em>11,498</em> RSF, the full floor.</div>
+        <ul class="floor-specs">
+          <li><span class="k">Size</span><span class="v">11,498 RSF &middot; Full Floor</span></li>
+          <li><span class="k">Layout</span><span class="v">68 Workstations</span></li>
+          <li><span class="k">Meeting</span><span class="v">6 Conference + 1 Boardroom</span></li>
+          <li><span class="k">Focus</span><span class="v">8 Phone Booths</span></li>
+          <li><span class="k">Elevators</span><span class="v">2 Passenger + 2 Freight</span></li>
+          <li><span class="k">Light</span><span class="v">Oversized Windows, High Ceilings</span></li>
+          <li><span class="k">Condition</span><span class="v">Furnished &middot; Plug-and-Play</span></li>
+        </ul>
+        <div class="floor-status">Available Now</div>
       </div>
-      <div class="floor-table" id="floorTable">
-        <!-- rows injected by JS -->
-      </div>
-      <div class="floor-detail-panel" id="floorDetail">
-        <!-- detail injected by JS -->
+      <div class="floor-card-img">
+        <img src="images/render-windows.jpg" alt="22 West 21st Street — open floor with windows">
       </div>
     </div>
-    <div class="explorer-caption">
-      The 11,498 RSF full floor is available now. For current availability on other floors,
-      contact the leasing team.
-    </div>
+    <div class="floor-note">For availability on floors above and below, contact the leasing team.</div>
   </div>
 </section>
 
 <!-- ENVISION -->
 <section class="scene" id="envision">
-  <div class="reveal center">
-    <div class="scene-label">Current &harr; Envisioned</div>
-    <h2 class="scene-title">See it high-end.<br>Then see it as-is.</h2>
-    <div class="scene-divider"></div>
-    <p class="opp-text center" style="margin:24px auto 0;max-width:660px;font-size:16px;">
-      Every space below opens on its <span class="hl">high-end vision</span>. Toggle to
-      <strong>As-Is</strong> to see the floor exactly as it stands today.
-    </p>
-  </div>
+  <div class="reveal"><div class="scene-label">Envisioned</div></div>
+  <div class="reveal r-d1"><h2 class="scene-title">What the floor <em>becomes</em>.</h2></div>
+  <div class="reveal r-d2"><p class="scene-sub">A series of design studies for 22 West 21 &mdash; the
+    bones of the building elevated to a polished, design-forward workplace. Every angle below is the
+    same floor, the same camera, just reimagined.</p></div>
 
-  <div class="envision-stack reveal reveal-delay-1">
+  <div class="envision-stack">
 
-    <div class="toggle-card" data-card>
-      <div class="toggle-stage">
-        <span class="toggle-tag" data-tag>Envisioned</span>
-        <img data-img="env" class="shown" src="images/reception-rendering.jpg" alt="Reception — envisioned">
-        <img data-img="asis" src="images/reception-asis.jpg" alt="Reception — as-is">
-      </div>
-      <div class="toggle-info">
-        <div class="scene-label">01 &mdash; Arrival</div>
-        <h3>The Reception</h3>
-        <p>The first impression. A stone reception desk and sculptural lighting set the tone the moment
-          the elevator opens &mdash; envision it elevated to a true flagship arrival.</p>
-        <div class="toggle-switch">
-          <button class="toggle-btn active" data-toggle="env">Envisioned</button>
-          <button class="toggle-btn asis" data-toggle="asis">As-Is</button>
-        </div>
+    <div class="env-feature reveal">
+      <img src="images/render-hero.jpg" alt="The full floor — envisioned">
+      <div class="env-caption">
+        <div class="env-eyebrow">01 &mdash; The Long View</div>
+        <div class="env-h">The full floor, <em>end to end</em>.</div>
+        <div class="env-body">An uninterrupted plate from the pantry at one end to a wall of windows at
+          the other &mdash; columns spaced to disappear into the layout.</div>
       </div>
     </div>
 
-    <div class="toggle-card" data-card>
-      <div class="toggle-stage">
-        <span class="toggle-tag" data-tag>Envisioned</span>
-        <img data-img="env" class="shown" src="images/open-office-rendering.jpg" alt="Open office — envisioned">
-        <img data-img="asis" src="images/open-office-asis.jpg" alt="Open office — as-is">
+    <div class="env-row reveal">
+      <div class="env-stage">
+        <img src="images/render-pantry.jpg" alt="The pantry and lounge — envisioned">
       </div>
-      <div class="toggle-info">
-        <div class="scene-label">02 &mdash; The Floor</div>
-        <h3>The Open Office</h3>
-        <p>Oversized windows, Flatiron light, and high ceilings &mdash; 68 desks today, with room to
-          densify. Envision a designed open floor that makes the most of the building's bones.</p>
-        <div class="toggle-switch">
-          <button class="toggle-btn active" data-toggle="env">Envisioned</button>
-          <button class="toggle-btn asis" data-toggle="asis">As-Is</button>
-        </div>
+      <div class="env-pair-text">
+        <div class="env-eyebrow">02 &mdash; The Pantry</div>
+        <div class="env-h">A <em>living</em> pantry, lounge included.</div>
+        <div class="env-body">Hospitality-grade kitchen, a green canopy overhead, and a soft lounge
+          beside it &mdash; the floor's social center. Two or three seats at the counter, room for the
+          rest of the team to gather around it.</div>
       </div>
     </div>
 
-    <div class="toggle-card" data-card>
-      <div class="toggle-stage">
-        <span class="toggle-tag" data-tag>Envisioned</span>
-        <img data-img="env" class="shown" src="images/boardroom-rendering.jpg" alt="Boardroom — envisioned">
-        <img data-img="asis" src="images/boardroom-asis.jpg" alt="Boardroom — as-is">
+    <div class="env-row reverse reveal">
+      <div class="env-stage">
+        <img src="images/render-office.jpg" alt="The open work area — envisioned">
       </div>
-      <div class="toggle-info">
-        <div class="scene-label">03 &mdash; The Room That Matters</div>
-        <h3>The Boardroom</h3>
-        <p>Where the deals get done. A full boardroom with custom lighting and a wall of windows &mdash;
-          envision it finished to the standard your clients expect.</p>
-        <div class="toggle-switch">
-          <button class="toggle-btn active" data-toggle="env">Envisioned</button>
-          <button class="toggle-btn asis" data-toggle="asis">As-Is</button>
-        </div>
+      <div class="env-pair-text">
+        <div class="env-eyebrow">03 &mdash; The Open Floor</div>
+        <div class="env-h">Open work, <em>designed</em>.</div>
+        <div class="env-body">Sleek desks in wood and matte black, premium task chairs, glass-walled
+          meeting rooms ringing the floor &mdash; light passes through everything. A refined ceiling
+          with linear lighting, the columns left as bones.</div>
+      </div>
+    </div>
+
+    <div class="env-row reveal">
+      <div class="env-stage">
+        <img src="images/render-windows.jpg" alt="A wall of windows — envisioned">
+      </div>
+      <div class="env-pair-text">
+        <div class="env-eyebrow">04 &mdash; Light</div>
+        <div class="env-h">Windows <em>for days</em>.</div>
+        <div class="env-body">Black-framed steel, floor-to-ceiling on the long exposure &mdash; the
+          kind of Flatiron light that sells a tour by itself.</div>
       </div>
     </div>
 
@@ -667,137 +644,135 @@ img{display:block;max-width:100%}
 
 <!-- HIGHLIGHTS -->
 <section class="scene" id="highlights">
-  <div class="reveal center">
-    <div class="scene-label">Space Highlights</div>
-    <h2 class="scene-title">Everything's already here.</h2>
-    <div class="scene-divider"></div>
+  <div class="reveal" style="text-align:center">
+    <div class="scene-label" style="justify-content:center">Space Highlights</div>
+    <h2 class="scene-title" style="margin:0 auto">Everything's already <em>here</em>.</h2>
   </div>
-  <div class="reveal reveal-delay-1 highlights-grid" id="highlightsGrid" style="margin-top:40px">
-    <!-- cards injected by JS -->
-  </div>
+  <div class="highlights-grid reveal r-d1" id="highlightsGrid"></div>
 </section>
 
-<!-- PHOTOS / CAROUSEL -->
-<section class="scene" id="photos">
-  <div class="reveal center">
-    <div class="scene-label">The Space Today</div>
-    <h2 class="scene-title">As it stands.</h2>
-    <div class="scene-divider"></div>
+<!-- TODAY (as-is carousel) -->
+<section class="scene scene-full" id="today">
+  <div style="max-width:1240px;margin:0 auto;padding:0 60px">
+    <div class="reveal"><div class="scene-label">The Space Today</div></div>
+    <div class="reveal r-d1"><h2 class="scene-title">As&nbsp;it&nbsp;stands.</h2></div>
+    <div class="reveal r-d2"><p class="scene-sub">The floor today &mdash; furnished, plug-and-play,
+      and already in use. The renderings above show what it becomes; these photos show what's there
+      the day you sign.</p></div>
   </div>
-  <div class="reveal reveal-delay-1" style="margin-top:40px">
-    <div class="carousel-wrapper">
-      <div class="carousel-track" id="carouselTrack">
-        <div class="carousel-slide">
-          <img src="images/pantry.jpg" alt="Pantry and amenity area">
-          <div class="carousel-caption"><h4>The Pantry &amp; Lounge</h4><p>A living plant wall, full kitchen, and breakout space &mdash; built for the way teams actually work.</p></div>
-        </div>
-        <div class="carousel-slide">
-          <img src="images/open-office-dense.jpg" alt="Densified open office">
-          <div class="carousel-caption"><h4>Room to Densify</h4><p>68 desks today &mdash; the column-spaced floor plate takes considerably more.</p></div>
-        </div>
-        <div class="carousel-slide">
-          <img src="images/glass-offices.jpg" alt="Glass-walled offices">
-          <div class="carousel-caption"><h4>Glass-Walled Offices</h4><p>Private offices and meeting rooms ring the floor &mdash; light in, sightlines open.</p></div>
-        </div>
-        <div class="carousel-slide">
-          <img src="images/huddle-room.jpg" alt="Huddle room">
-          <div class="carousel-caption"><h4>Conference &amp; Huddle Rooms</h4><p>Six conference rooms and eight phone booths &mdash; acoustically treated and ready to use.</p></div>
-        </div>
+  <div class="reveal r-d2" style="max-width:1320px;margin:56px auto 0;padding:0 60px">
+    <div class="today-wrap">
+      <div class="today-track" id="todayTrack">
+        <div class="today-slide"><img src="images/pantry.jpg" alt="The pantry today">
+          <div class="today-cap"><div class="today-cap-eyebrow">Today &mdash; Pantry &amp; Lounge</div>
+            <h4>The pantry as it stands.</h4><p>Living plant wall, full kitchen, breakout space.</p></div></div>
+        <div class="today-slide"><img src="images/open-office-dense.jpg" alt="Open office today">
+          <div class="today-cap"><div class="today-cap-eyebrow">Today &mdash; Open Floor</div>
+            <h4>68 desks, room to densify.</h4><p>The column-spaced floor plate takes considerably more.</p></div></div>
+        <div class="today-slide"><img src="images/glass-offices.jpg" alt="Glass offices today">
+          <div class="today-cap"><div class="today-cap-eyebrow">Today &mdash; Meeting Rooms</div>
+            <h4>Glass-walled offices.</h4><p>Private offices and meeting rooms ring the floor.</p></div></div>
+        <div class="today-slide"><img src="images/huddle-room.jpg" alt="Huddle room today">
+          <div class="today-cap"><div class="today-cap-eyebrow">Today &mdash; Conference</div>
+            <h4>Six conference rooms.</h4><p>Acoustically treated, wired, and ready.</p></div></div>
+        <div class="today-slide"><img src="images/boardroom-asis.jpg" alt="Boardroom today">
+          <div class="today-cap"><div class="today-cap-eyebrow">Today &mdash; Boardroom</div>
+            <h4>A full boardroom.</h4><p>Custom lighting, wall of windows, ready to use.</p></div></div>
+        <div class="today-slide"><img src="images/reception-asis.jpg" alt="Reception today">
+          <div class="today-cap"><div class="today-cap-eyebrow">Today &mdash; Arrival</div>
+            <h4>A stone reception arrival.</h4><p>Sculptural lighting and a marble desk the moment the elevator opens.</p></div></div>
       </div>
-      <div class="carousel-arrows">
-        <button class="carousel-arrow" id="carPrev">&#8249;</button>
-        <button class="carousel-arrow" id="carNext">&#8250;</button>
+      <div class="today-arrows">
+        <button class="today-arrow" id="todayPrev" aria-label="Previous">&#8249;</button>
+        <button class="today-arrow" id="todayNext" aria-label="Next">&#8250;</button>
       </div>
-      <div class="carousel-nav" id="carouselNav"></div>
+      <div class="today-nav" id="todayNav"></div>
     </div>
   </div>
 </section>
 
 <!-- FLOOR PLAN -->
 <section class="scene" id="plan">
-  <div class="reveal center">
-    <div class="scene-label">Floor Plan</div>
-    <h2 class="scene-title">The test-fit &mdash; 68 desks.</h2>
-    <div class="scene-divider"></div>
+  <div class="reveal" style="text-align:center">
+    <div class="scene-label" style="justify-content:center">Floor Plan</div>
+    <h2 class="scene-title" style="margin:0 auto">Test-fit &mdash; <em>68 desks</em>.</h2>
   </div>
-  <div class="reveal reveal-delay-1" style="margin-top:40px">
-    <div class="plan-viewer">
-      <img class="plan-img" id="planImg" src="images/floor-plan.png" alt="22 West 21st Street floor plan — test-fit">
+  <div class="reveal r-d1">
+    <div class="plan-frame">
+      <img class="plan-img" id="planImg" src="images/floor-plan.png" alt="22 West 21st Street floor plan — test-fit, 68 desks">
     </div>
     <div class="plan-hint">Click the plan to enlarge</div>
   </div>
 </section>
 
-<!-- FLATIRON / NEIGHBORHOOD -->
+<!-- FLATIRON -->
 <section class="scene" id="flatiron">
-  <div class="reveal center">
-    <div class="scene-label">The Neighborhood</div>
-    <h2 class="scene-title">Flatiron.</h2>
-    <div class="scene-divider"></div>
-    <p class="opp-text center" style="margin:24px auto 0;max-width:680px;font-size:16px;">
-      Between Fifth and Sixth, steps from <strong>Madison Square Park</strong> &mdash; the Flatiron District
-      pairs landmark architecture with the city's best food, fitness, and transit. Everything your team
-      wants is within a few blocks.
-    </p>
+  <div class="reveal" style="text-align:center">
+    <div class="scene-label" style="justify-content:center">The Neighborhood</div>
+    <h2 class="scene-title" style="margin:0 auto"><em>Flatiron.</em></h2>
+    <p class="scene-sub" style="margin:24px auto 0">Between Fifth and Sixth, steps from <strong>Madison
+      Square Park</strong> &mdash; the Flatiron District pairs landmark architecture with the city's
+      best food, fitness, and transit. Everything your team wants is within a few blocks.</p>
   </div>
-  <div class="reveal reveal-delay-1 neighborhood-pills">
-    <span class="npill">Madison Square Park</span>
-    <span class="npill">Eataly</span>
-    <span class="npill">Eleven Madison Park</span>
-    <span class="npill">The Flatiron Building</span>
-    <span class="npill">Shake Shack (Original)</span>
-    <span class="npill">ABC Carpet &amp; Home</span>
-    <span class="npill">Union Square Greenmarket</span>
-    <span class="npill">Equinox</span>
-    <span class="npill">The NoMad</span>
-    <span class="npill">Rizzoli Bookstore</span>
+  <div class="reveal r-d1 pills-row">
+    <span class="pill">Madison Square Park</span>
+    <span class="pill">Eataly</span>
+    <span class="pill">Eleven Madison Park</span>
+    <span class="pill">The Flatiron Building</span>
+    <span class="pill">Shake Shack (Original)</span>
+    <span class="pill">ABC Carpet &amp; Home</span>
+    <span class="pill">Union Square Greenmarket</span>
+    <span class="pill">Equinox</span>
+    <span class="pill">The NoMad</span>
+    <span class="pill">Rizzoli Bookstore</span>
   </div>
-  <div class="reveal reveal-delay-2 center" style="margin-top:36px">
-    <div class="scene-label" style="margin-bottom:0">Transit at 23rd Street &amp; Union Square</div>
-    <div class="subway-badges">
-      <span class="subway-badge" style="background:#FF6319" title="F line">F</span>
-      <span class="subway-badge" style="background:#FF6319" title="M line">M</span>
-      <span class="subway-badge" style="background:#FCCC0A;color:#000" title="N line">N</span>
-      <span class="subway-badge" style="background:#FCCC0A;color:#000" title="R line">R</span>
-      <span class="subway-badge" style="background:#FCCC0A;color:#000" title="W line">W</span>
-      <span class="subway-badge" style="background:#EE352E" title="1 line">1</span>
-      <span class="subway-badge" style="background:#00933C" title="6 line">6</span>
-      <span class="subway-badge" style="background:#A7A9AC;color:#000" title="L line">L</span>
-      <span class="subway-badge" style="background:#2D8CFF;font-size:10px" title="PATH">PATH</span>
+  <div class="reveal r-d2">
+    <div class="transit-label">Subway &mdash; 23rd Street Stations</div>
+    <div class="subway-row">
+      <span class="sub" style="background:#FF6319" title="F line">F</span>
+      <span class="sub" style="background:#FF6319" title="M line">M</span>
+      <span class="sub" style="background:#FCCC0A;color:#000" title="N line">N</span>
+      <span class="sub" style="background:#FCCC0A;color:#000" title="R line">R</span>
+      <span class="sub" style="background:#FCCC0A;color:#000" title="W line">W</span>
+      <span class="sub" style="background:#EE352E" title="1 line">1</span>
+      <span class="sub" style="background:#00933C" title="6 line">6</span>
+      <span class="sub" style="background:#2d5a3d;font-size:10px" title="PATH">PATH</span>
     </div>
   </div>
 </section>
 
-<!-- CONTACT / FOOTER -->
+<!-- CONTACT -->
 <section class="scene contact" id="contact">
   <div class="reveal">
-    <div class="scene-label" style="text-align:center">Leasing</div>
-    <h2 class="contact-headline">Let's get you on the floor.</h2>
+    <div class="scene-label" style="justify-content:center">Leasing</div>
+    <h2 class="contact-h">Let's get you <em>on the floor</em>.</h2>
     <p class="contact-sub">For tours, floor plans, and full leasing information on 22 West 21st Street,
       reach out to the RDE Advisors leasing team directly.</p>
   </div>
-  <div class="reveal reveal-delay-1 footer-brokers">
-    <div class="footer-broker">
-      <div class="footer-broker-name">Jeremy Birns</div>
-      <div class="footer-broker-role">RDE Advisors</div>
-      <div class="footer-broker-phone"><a href="tel:+12016555092">201-655-5092</a></div>
-      <div class="footer-broker-email"><a href="mailto:Jeremy@RDEadvisors.com">Jeremy@RDEadvisors.com</a></div>
+  <div class="reveal r-d1 brokers">
+    <div class="broker">
+      <div class="broker-name">Jeremy Birns</div>
+      <div class="broker-firm">RDE Advisors</div>
+      <div class="broker-phone"><a href="tel:+12016555092">201-655-5092</a></div>
+      <div class="broker-email"><a href="mailto:Jeremy@RDEadvisors.com">Jeremy@RDEadvisors.com</a></div>
     </div>
-    <div class="footer-broker">
-      <div class="footer-broker-name">Ross D. Eisenberg</div>
-      <div class="footer-broker-role">RDE Advisors</div>
-      <div class="footer-broker-phone"><a href="tel:+13479207220">347-920-7220</a></div>
-      <div class="footer-broker-email"><a href="mailto:Ross@RDEadvisors.com">Ross@RDEadvisors.com</a></div>
+    <div class="broker">
+      <div class="broker-name">Ross D. Eisenberg</div>
+      <div class="broker-firm">RDE Advisors</div>
+      <div class="broker-phone"><a href="tel:+13479207220">347-920-7220</a></div>
+      <div class="broker-email"><a href="mailto:Ross@RDEadvisors.com">Ross@RDEadvisors.com</a></div>
     </div>
   </div>
 </section>
 
-<footer class="site-footer">
-  <div class="footer-logo"><img src="images/rde-logo-white.svg" alt="RDE Advisors, Inc."></div>
-  <div class="footer-fine">
-    22 West 21st Street, New York, NY &mdash; Flatiron District.<br>
-    All information is from sources deemed reliable and is subject to errors, omissions, change of
-    price, prior lease, or withdrawal without notice. Marketed exclusively by RDE Advisors, Inc.
+<footer class="foot">
+  <div class="foot-inner">
+    <div class="foot-logo"><img src="images/rde-logo-dark.svg" alt="RDE Advisors, Inc."></div>
+    <div class="foot-fine">
+      22 West 21st Street, New York, NY &mdash; Flatiron District.<br>
+      All information is from sources deemed reliable and is subject to errors, omissions, change of
+      price, prior lease, or withdrawal without notice. Marketed exclusively by RDE Advisors, Inc.
+    </div>
   </div>
 </footer>
 
@@ -805,208 +780,94 @@ img{display:block;max-width:100%}
 <div class="lightbox" id="lightbox"><img id="lightboxImg" src="" alt="Floor plan enlarged"></div>
 
 <script>
-/* ===== OPENING SEQUENCE ===== */
+/* ===== HERO ENTRANCE ===== */
 (function(){
-  var opening=document.getElementById('opening');
-  var grid=document.getElementById('zoomGrid');
-  var zl1=document.getElementById('zl1'),zl2=document.getElementById('zl2'),zl3=document.getElementById('zl3');
-  var finished=false;
-  function finish(){
-    if(finished)return;finished=true;
-    grid.classList.add('zoomed');
-    opening.classList.add('done');
-    document.body.style.overflow='';
-    setTimeout(function(){opening.style.display='none';},900);
-    showHero();
-  }
-  document.body.style.overflow='hidden';
-  setTimeout(function(){zl1.classList.add('show');},250);
-  setTimeout(function(){zl1.classList.add('hide');},1150);
-  setTimeout(function(){zl2.classList.add('show');},1300);
-  setTimeout(function(){zl2.classList.add('hide');},2200);
-  setTimeout(function(){zl3.classList.add('show');},2350);
-  setTimeout(function(){finish();},3500);
-  opening.addEventListener('click',finish);
-  function showHero(){document.getElementById('heroContent').classList.add('visible');}
+  var hero=document.getElementById('hero');
+  setTimeout(function(){hero.classList.add('in');},80);
 })();
 
 /* ===== NAV SCROLL STATE ===== */
 (function(){
   var nav=document.getElementById('nav');
-  function onScroll(){
-    if(window.scrollY>60)nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
-  }
+  function onScroll(){if(window.scrollY>40)nav.classList.add('scrolled');else nav.classList.remove('scrolled');}
   window.addEventListener('scroll',onScroll,{passive:true});onScroll();
 })();
 
-/* ===== SCROLL REVEAL ===== */
+/* ===== REVEAL ===== */
 (function(){
   var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
-  },{threshold:0.15});
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:0.14});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  var eb=document.querySelector('.hero-eyebrow');
+  if(eb)setTimeout(function(){eb.classList.add('in');},120);
 })();
 
 /* ===== RSF COUNTER ===== */
 (function(){
-  var el=document.getElementById('rsfCounter');var target=11498;var done=false;
+  var el=document.getElementById('rsfCounter');if(!el)return;
+  var target=11498,done=false;
   var io=new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       if(e.isIntersecting&&!done){
-        done=true;var start=null,dur=1600;
+        done=true;el.textContent='0';
+        var start=null,dur=1700;
         function step(ts){
-          if(!start)start=ts;var p=Math.min((ts-start)/dur,1);
-          var eased=1-Math.pow(1-p,3);
+          if(!start)start=ts;
+          var p=Math.min((ts-start)/dur,1),eased=1-Math.pow(1-p,3);
           el.textContent=Math.floor(eased*target).toLocaleString();
           if(p<1)requestAnimationFrame(step);else el.textContent=target.toLocaleString();
         }
         requestAnimationFrame(step);
       }
     });
-  },{threshold:0.5});
+  },{threshold:0.35});
   io.observe(el);
-})();
-
-/* ===== BUILDING EXPLORER =====
-   ⚑ PLACEHOLDER STACKING DATA — replace the FLOORS array below with the
-   real 22 West 21st Street building stack (floor count, RSF per floor,
-   lease status, ceiling notes). Only the "available" floor is real.        */
-var FLOORS=[
-  {n:'12', rsf:'—',      ceil:'',                                   status:'inquire'},
-  {n:'11', rsf:'—',      ceil:'',                                   status:'inquire'},
-  {n:'10', rsf:'—',      ceil:'',                                   status:'inquire'},
-  {n:'9',  rsf:'—',      ceil:'',                                   status:'inquire'},
-  {n:'8',  rsf:'—',      ceil:'',                                   status:'inquire'},
-  {n:'7',  rsf:'—',      ceil:'',                                   status:'inquire'},
-  {n:'6',  rsf:'—',      ceil:'',                                   status:'inquire'},
-  {n:'5',  rsf:'—',      ceil:'',                                   status:'inquire'},
-  {n:'4',  rsf:'—',      ceil:'',                                   status:'inquire'},
-  {n:'3',  rsf:'—',      ceil:'',                                   status:'inquire'},
-  {n:'2',  rsf:'11,498', ceil:'High ceilings · oversized windows · furnished, plug-and-play', status:'available'},
-  {n:'G',  rsf:'—',      ceil:'Lobby · 2 passenger + 2 freight elevators', status:'ground'}
-];
-(function(){
-  var svg=document.getElementById('buildingSvg');
-  var table=document.getElementById('floorTable');
-  var detail=document.getElementById('floorDetail');
-  var activeIdx=FLOORS.findIndex(function(f){return f.status==='available';});
-  if(activeIdx<0)activeIdx=0;
-
-  FLOORS.forEach(function(f,i){
-    // building block
-    var blk=document.createElement('div');
-    blk.className='bld-floor'+(f.status==='available'?' is-available':'')+(f.status==='ground'?' bld-floor-gnd':'');
-    blk.innerHTML='<div class="bld-window"></div><div class="bld-window"></div><div class="bld-window"></div>';
-    blk.addEventListener('mouseenter',function(){setActive(i);});
-    blk.addEventListener('click',function(){setActive(i);});
-    svg.appendChild(blk);
-
-    // table row
-    var row=document.createElement('div');
-    row.className='floor-row'+(f.status==='available'?' is-available':'');
-    var badge=f.status==='available'
-      ? '<span class="status-badge badge-available">Available</span>'
-      : (f.status==='ground'
-          ? '<span class="status-badge badge-inquire">Lobby</span>'
-          : '<span class="status-badge badge-inquire">Inquire</span>');
-    row.innerHTML=
-      '<div class="floor-num">'+f.n+'</div>'+
-      '<div class="floor-info"><div class="floor-rsf">'+(f.rsf==='—'?'<span style="color:#666">— RSF</span>':f.rsf+' RSF')+'</div>'+
-        (f.ceil?'<div class="floor-ceil">'+f.ceil.split(' · ')[0]+'</div>':'')+'</div>'+
-      badge;
-    row.addEventListener('mouseenter',function(){setActive(i);});
-    row.addEventListener('click',function(){setActive(i);});
-    table.appendChild(row);
-  });
-
-  var blocks=svg.querySelectorAll('.bld-floor');
-  var rows=table.querySelectorAll('.floor-row');
-
-  function setActive(i){
-    activeIdx=i;
-    blocks.forEach(function(b,j){b.classList.toggle('active',j===i);});
-    rows.forEach(function(r,j){r.classList.toggle('active',j===i);});
-    var f=FLOORS[i];
-    var statusHtml=f.status==='available'
-      ? '<span class="status-badge badge-available">Available Now</span>'
-      : (f.status==='ground'?'<span class="status-badge badge-inquire">Lobby</span>'
-                            :'<span class="status-badge badge-inquire">Inquire for Availability</span>');
-    detail.innerHTML=
-      '<div class="fdp-floor">'+f.n+'</div>'+
-      '<div class="fdp-label">'+(f.n==='G'?'Ground Floor':'Floor '+f.n)+'</div>'+
-      '<div class="fdp-rsf">'+(f.rsf==='—'?'Inquire':f.rsf+' RSF')+'</div>'+
-      (f.ceil?'<div class="fdp-ceiling">'+f.ceil+'</div>':'<div class="fdp-ceiling">Contact the leasing team for current availability.</div>')+
-      '<div class="fdp-status">'+statusHtml+'</div>';
-  }
-  setActive(activeIdx);
-})();
-
-/* ===== ENVISION TOGGLES ===== */
-(function(){
-  document.querySelectorAll('[data-card]').forEach(function(card){
-    var imgs={env:card.querySelector('[data-img="env"]'),asis:card.querySelector('[data-img="asis"]')};
-    var tag=card.querySelector('[data-tag]');
-    var btns=card.querySelectorAll('[data-toggle]');
-    btns.forEach(function(btn){
-      btn.addEventListener('click',function(){
-        var mode=btn.getAttribute('data-toggle');
-        btns.forEach(function(b){b.classList.remove('active');});
-        btn.classList.add('active');
-        imgs.env.classList.toggle('shown',mode==='env');
-        imgs.asis.classList.toggle('shown',mode==='asis');
-        if(mode==='asis'){tag.textContent='As-Is Today';tag.classList.add('asis');}
-        else{tag.textContent='Envisioned';tag.classList.remove('asis');}
-      });
-    });
-  });
 })();
 
 /* ===== HIGHLIGHTS ===== */
 var HIGHLIGHTS=[
-  {icon:'&#9989;',title:'Move-In Ready',desc:'No build-out, no downtime. The floor is finished, furnished, and ready to occupy.'},
-  {icon:'&#129681;',title:'Fully Furnished',desc:'Desks, chairs, conference tables, and lounge furniture are all in place — plug-and-play from day one.'},
-  {icon:'&#128421;',title:'68 Desks — Room to Densify',desc:'Configured for 68 workstations today; the open, column-spaced plate takes considerably more.'},
-  {icon:'&#128507;',title:'2 Passenger + 2 Freight Elevators',desc:'Two passenger cabs plus two freight elevators — easy moves, easy deliveries.'},
-  {icon:'&#128205;',title:'High Ceilings',desc:'Generous ceiling heights give the full floor an open, airy feel throughout.'},
-  {icon:'&#127968;',title:'Oversized Windows',desc:'Walls of oversized windows pull Flatiron light deep into the floor plate.'},
-  {icon:'&#128172;',title:'6 Conference Rooms',desc:'Six dedicated conference rooms — glass-walled, wired, and ready for meetings.'},
-  {icon:'&#127942;',title:'1 Boardroom',desc:'A full boardroom with custom lighting and a wall of windows for the meetings that matter.'},
-  {icon:'&#128222;',title:'8 Phone Booths',desc:'Eight acoustically treated phone booths for focused calls and heads-down work.'}
+  {n:'01',title:'Move-In Ready',desc:'No build-out, no downtime. Finished, furnished, ready to occupy.'},
+  {n:'02',title:'Fully Furnished',desc:'Desks, chairs, conference tables, lounge furniture &mdash; all in place. Plug-and-play from day one.'},
+  {n:'03',title:'68 Desks',desc:'Configured for 68 workstations today. The open, column-spaced plate takes considerably more.'},
+  {n:'04',title:'2 + 2 Elevators',desc:'Two passenger cabs plus two freight elevators &mdash; easy moves, easy deliveries.'},
+  {n:'05',title:'High Ceilings',desc:'Generous ceiling heights give the full floor an open, airy feel throughout.'},
+  {n:'06',title:'Oversized Windows',desc:'Walls of oversized windows pull Flatiron light deep into the floor plate.'},
+  {n:'07',title:'6 Conference Rooms',desc:'Six dedicated conference rooms &mdash; glass-walled, wired, ready for meetings.'},
+  {n:'08',title:'Boardroom',desc:'A full boardroom with custom lighting and a wall of windows for the meetings that matter.'},
+  {n:'09',title:'8 Phone Booths',desc:'Eight acoustically treated phone booths for focused calls and heads-down work.'}
 ];
 (function(){
   var grid=document.getElementById('highlightsGrid');
   HIGHLIGHTS.forEach(function(h){
-    var c=document.createElement('div');
-    c.className='hcard';
-    c.innerHTML='<div class="hcard-icon">'+h.icon+'</div>'+
+    var c=document.createElement('div');c.className='hcard';
+    c.innerHTML='<span class="hcard-num" aria-hidden="true">'+h.n+'</span>'+
       '<div class="hcard-title">'+h.title+'</div>'+
       '<div class="hcard-desc">'+h.desc+'</div>';
-    c.addEventListener('click',function(){c.classList.toggle('open');});
     grid.appendChild(c);
   });
 })();
 
-/* ===== CAROUSEL ===== */
+/* ===== TODAY CAROUSEL ===== */
 (function(){
-  var track=document.getElementById('carouselTrack');
-  var slides=track.children;var nav=document.getElementById('carouselNav');
-  var idx=0,n=slides.length;
+  var track=document.getElementById('todayTrack');
+  var slides=track.children;var nav=document.getElementById('todayNav');
+  var idx=0,n=slides.length,auto=null;
   for(var i=0;i<n;i++){
-    var d=document.createElement('button');d.className='carousel-dot'+(i===0?' active':'');
+    var d=document.createElement('button');d.className='today-dot'+(i===0?' active':'');d.setAttribute('aria-label','Slide '+(i+1));
     (function(j){d.addEventListener('click',function(){go(j);});})(i);
     nav.appendChild(d);
   }
   var dots=nav.children;
-  function go(i){
-    idx=(i+n)%n;
-    track.style.transform='translateX(-'+(idx*100)+'%)';
-    for(var k=0;k<n;k++)dots[k].classList.toggle('active',k===idx);
-  }
-  document.getElementById('carPrev').addEventListener('click',function(){go(idx-1);});
-  document.getElementById('carNext').addEventListener('click',function(){go(idx+1);});
-  var auto=setInterval(function(){go(idx+1);},6000);
-  track.parentElement.addEventListener('mouseenter',function(){clearInterval(auto);});
+  function go(i){idx=(i+n)%n;track.style.transform='translateX(-'+(idx*100)+'%)';for(var k=0;k<n;k++)dots[k].classList.toggle('active',k===idx);}
+  function start(){stop();auto=setInterval(function(){go(idx+1);},6000);}
+  function stop(){if(auto){clearInterval(auto);auto=null;}}
+  document.getElementById('todayPrev').addEventListener('click',function(){go(idx-1);start();});
+  document.getElementById('todayNext').addEventListener('click',function(){go(idx+1);start();});
+  var wrap=track.parentElement;
+  wrap.addEventListener('mouseenter',stop);
+  wrap.addEventListener('mouseleave',start);
+  start();
 })();
 
 /* ===== LIGHTBOX ===== */
@@ -1018,7 +879,7 @@ var HIGHLIGHTS=[
   document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('open');});
 })();
 
-/* ===== SMOOTH ANCHOR + NAV CLOSE ===== */
+/* ===== SMOOTH ANCHOR ===== */
 (function(){
   document.querySelectorAll('a[href^="#"]').forEach(function(a){
     a.addEventListener('click',function(e){
