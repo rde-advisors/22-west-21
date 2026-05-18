@@ -399,6 +399,13 @@ img{display:block;max-width:100%}
 }
 .today-arrow:hover{background:#fff;transform:scale(1.05)}
 
+/* ===== LOBBY ===== */
+.lobby-frame{
+  border-radius:18px;overflow:hidden;background:var(--surface);
+  box-shadow:var(--shadow);max-width:900px;margin:0 auto;
+}
+.lobby-frame img{width:100%;display:block;height:auto}
+
 /* ===== FLOOR PLAN ===== */
 .plan-frame{
   background:var(--surface);border-radius:18px;padding:24px;
@@ -544,6 +551,7 @@ img{display:block;max-width:100%}
     <a href="#envision">Envision</a>
     <a href="#highlights">Highlights</a>
     <a href="#today">Today</a>
+    <a href="#lobby">Lobby</a>
     <a href="#plan">Plan</a>
     <a href="#flatiron">Flatiron</a>
   </div>
@@ -556,6 +564,7 @@ img{display:block;max-width:100%}
   <a href="#envision" role="menuitem">Envision</a>
   <a href="#highlights" role="menuitem">Highlights</a>
   <a href="#today" role="menuitem">Today</a>
+  <a href="#lobby" role="menuitem">Lobby</a>
   <a href="#plan" role="menuitem">Floor Plan</a>
   <a href="#flatiron" role="menuitem">Flatiron</a>
   <a href="#contact" role="menuitem">Contact</a>
@@ -591,8 +600,8 @@ img{display:block;max-width:100%}
         opportunity in one of Manhattan's most sought-after submarkets &mdash; the entire
         2nd floor, <strong>11,498 rentable square feet</strong>, fully furnished and
         <em class="hl">move-in ready</em>. Ownership is <em class="hl">hands-on and
-        responsive</em> &mdash; willing to deliver the floor as it stands, or to fund a
-        high-end, bespoke build-out for the right long-term occupier.
+        responsive</em> &mdash; willing to deliver the floor as it stands, or provide a
+        high-end, bespoke build-out for a long-term occupier.
       </p>
     </div>
     <div class="reveal r-d3">
@@ -695,8 +704,8 @@ img{display:block;max-width:100%}
 <!-- HIGHLIGHTS -->
 <section class="scene" id="highlights">
   <div class="reveal" style="text-align:center">
-    <div class="scene-label" style="justify-content:center">Space Highlights</div>
-    <h2 class="scene-title" style="margin:0 auto">Everything's already <em>here</em>.</h2>
+    <div class="scene-label" style="justify-content:center">Summary</div>
+    <h2 class="scene-title" style="margin:0 auto">The deal, <em>at a glance</em>.</h2>
   </div>
   <div class="highlights-grid reveal r-d1" id="highlightsGrid"></div>
 </section>
@@ -727,15 +736,27 @@ img{display:block;max-width:100%}
         <div class="today-slide"><img loading="lazy" decoding="async" src="images/boardroom-asis.jpg" alt="Boardroom today">
           <div class="today-cap"><div class="today-cap-eyebrow">Today &mdash; Boardroom</div>
             <h4>A full boardroom.</h4><p>Custom lighting, wall of windows, ready to use.</p></div></div>
-        <div class="today-slide"><img loading="lazy" decoding="async" src="images/reception-asis.jpg" alt="Reception today">
-          <div class="today-cap"><div class="today-cap-eyebrow">Today &mdash; Arrival</div>
-            <h4>A stone reception arrival.</h4><p>Sculptural lighting and a marble desk the moment the elevator opens.</p></div></div>
       </div>
       <div class="today-arrows">
         <button class="today-arrow" id="todayPrev" aria-label="Previous">&#8249;</button>
         <button class="today-arrow" id="todayNext" aria-label="Next">&#8250;</button>
       </div>
       <div class="today-nav" id="todayNav"></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOBBY -->
+<section class="scene" id="lobby">
+  <div class="reveal" style="text-align:center">
+    <div class="scene-label" style="justify-content:center">The Building</div>
+    <h2 class="scene-title" style="margin:0 auto">An <em>attended</em> lobby.</h2>
+    <p class="scene-sub" style="margin:24px auto 0">A staffed arrival at street level &mdash; visitors greeted, packages received,
+      tenants known.</p>
+  </div>
+  <div class="reveal r-d1" style="margin-top:48px">
+    <div class="lobby-frame">
+      <img loading="lazy" decoding="async" src="images/reception-asis.jpg" alt="22 West 21st Street &mdash; attended building lobby">
     </div>
   </div>
 </section>
@@ -883,14 +904,13 @@ img{display:block;max-width:100%}
 /* ===== HIGHLIGHTS ===== */
 var HIGHLIGHTS=[
   {n:'01',title:'Move-In Ready',desc:'No build-out, no downtime. Finished, furnished, ready to occupy.'},
-  {n:'02',title:'Fully Furnished',desc:'Desks, chairs, conference tables, lounge furniture &mdash; all in place. Plug-and-play from day one.'},
-  {n:'03',title:'68 Desks',desc:'Configured for 68 workstations today, with room to densify well beyond that.'},
-  {n:'04',title:'Four Elevators',desc:'Two passenger cabs plus two freight elevators &mdash; easy moves, easy deliveries.'},
-  {n:'05',title:'High Ceilings',desc:'Generous ceiling heights give the full floor an open, airy feel throughout.'},
-  {n:'06',title:'Oversized Windows',desc:'Walls of oversized windows pull Flatiron light deep into the floor plate.'},
-  {n:'07',title:'6 Conference Rooms',desc:'Six dedicated conference rooms &mdash; glass-walled, wired, ready for meetings.'},
-  {n:'08',title:'Boardroom',desc:'A full boardroom with custom lighting and a wall of windows for the meetings that matter.'},
-  {n:'09',title:'8 Phone Booths',desc:'Eight acoustically treated phone booths for focused calls and heads-down work.'}
+  {n:'02',title:'Landlord Will Fully Renovate',desc:'Hands-on ownership will deliver a high-end, bespoke build-out for a long-term occupier.'},
+  {n:'03',title:'Attended Lobby',desc:'Staffed building entrance &mdash; visitors greeted at the door.'},
+  {n:'04',title:'2 Blocks from Madison Sq. Park',desc:'The park, Eataly, Eleven Madison, and the heart of Flatiron &mdash; all within a few blocks.'},
+  {n:'05',title:'Broker / Tenant-Friendly Landlord',desc:'Under-20-page tenant-friendly lease, payment on signing &mdash; straightforward to close.'},
+  {n:'06',title:'Four Elevators',desc:'Two passenger cabs plus two freight elevators &mdash; easy moves, easy deliveries.'},
+  {n:'07',title:'High Ceilings',desc:'Generous ceiling heights give the full floor an open, airy feel throughout.'},
+  {n:'08',title:'Oversized Windows',desc:'Walls of oversized windows pull Flatiron light deep into the floor plate.'}
 ];
 (function(){
   var grid=document.getElementById('highlightsGrid');
