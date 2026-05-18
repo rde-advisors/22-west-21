@@ -304,22 +304,16 @@ img{display:block;max-width:100%}
 .render-tag{
   display:block;text-align:center;
   font-family:'Lora',Georgia,serif;font-style:italic;
-  font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  font-size:10px;letter-spacing:.06em;
   color:var(--ink-3);
-  padding:10px 0 14px;background:var(--surface);
-}
-.floor-card-img .render-tag{
-  position:absolute;bottom:10px;right:14px;padding:4px 10px;
-  background:rgba(20,17,13,.5);color:rgba(255,255,255,.9);
-  border-radius:3px;letter-spacing:.12em;
+  padding:10px 0 0;background:transparent;
+  opacity:.7;
 }
 .env-feature{
-  display:grid;grid-template-columns:1fr;gap:0;
-  border-radius:18px;overflow:hidden;
-  box-shadow:var(--shadow);background:var(--surface);
+  display:grid;grid-template-columns:1fr;gap:0;background:transparent;
 }
-.env-feature img{width:100%;height:auto;display:block}
-.env-feature .env-caption{padding:32px 40px}
+.env-feature img{width:100%;height:auto;display:block;border-radius:18px 18px 0 0;box-shadow:var(--shadow)}
+.env-feature .env-caption{padding:32px 40px;background:var(--surface);border-radius:0 0 18px 18px;box-shadow:var(--shadow)}
 .env-feature .env-eyebrow,.env-pair-text .env-eyebrow{
   font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
   color:var(--green);margin-bottom:14px;
@@ -335,8 +329,8 @@ img{display:block;max-width:100%}
 .env-row{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
 .env-row.reverse{grid-template-columns:1fr 1.05fr}
 .env-row.reverse .env-stage{order:2}
-.env-stage{border-radius:18px;overflow:hidden;box-shadow:var(--shadow);background:var(--surface)}
-.env-stage img{width:100%;display:block;height:auto}
+.env-stage{background:transparent;display:flex;flex-direction:column}
+.env-stage img{width:100%;display:block;height:auto;border-radius:18px;box-shadow:var(--shadow)}
 .env-pair-text .env-h{
   font-family:'Lora',Georgia,serif;font-weight:400;
   font-size:clamp(28px,3vw,40px);line-height:1.1;letter-spacing:-.02em;color:var(--ink);
@@ -450,8 +444,8 @@ img{display:block;max-width:100%}
 }
 .subway-row{display:flex;gap:12px;justify-content:center;margin-top:22px;flex-wrap:wrap}
 .sub{
-  width:40px;height:40px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
+  min-width:40px;height:40px;border-radius:999px;padding:0 8px;
+  display:inline-flex;align-items:center;justify-content:center;
   font-weight:800;font-size:15px;color:#fff;
   transition:transform .25s, box-shadow .25s;
   box-shadow:0 2px 8px rgba(20,17,13,.15);
@@ -483,6 +477,7 @@ img{display:block;max-width:100%}
   color:var(--green);margin-bottom:18px;
 }
 .broker-phone,.broker-email{font-size:15px;line-height:1.7}
+.broker-phone a,.broker-email a{display:inline-block;padding:6px 0;min-height:32px}
 .broker-phone a{color:var(--ink-2);font-weight:500}
 .broker-phone a:hover{color:var(--ink)}
 .broker-email a{color:var(--green);font-weight:500}
@@ -528,14 +523,14 @@ img{display:block;max-width:100%}
   .hcard{padding:24px 22px}
   .today-slide img{height:320px}
   .today-cap{padding:40px 26px 28px}
-  .today-arrow{width:36px;height:36px;font-size:16px}
+  .today-arrow{width:44px;height:44px;font-size:18px}
   .plan-frame{padding:14px}
   .brokers{gap:20px}
   .broker{padding:28px 28px;min-width:0;width:100%}
   .foot-inner{flex-direction:column;text-align:center;padding:32px 22px 40px}
   .foot-fine{text-align:center}
 }
-@media(max-width:380px){.hero-stats{flex-wrap:wrap;gap:22px}}
+@media(max-width:380px){.hero-stats{flex-wrap:wrap;gap:22px}.hero-address{font-size:46px}.hero-street{font-size:16px}}
 </style>
 </head>
 <body>
@@ -633,7 +628,7 @@ img{display:block;max-width:100%}
         <div class="floor-status">Available Now</div>
       </div>
       <div class="floor-card-img">
-        <img loading="lazy" decoding="async" src="images/render-windows.jpg" alt="22 West 21st Street — open floor with windows"><div class="render-tag">Rendering</div>
+        <img loading="lazy" decoding="async" src="images/render-windows.jpg" alt="22 West 21st Street — open floor with windows">
       </div>
     </div>
   </div>
@@ -755,7 +750,7 @@ img{display:block;max-width:100%}
     <div class="plan-frame">
       <img loading="lazy" decoding="async" class="plan-img" id="planImg" src="images/floor-plan.png" alt="22 West 21st Street floor plan — as-built, 68 desks">
     </div>
-    <div class="plan-hint">Click the plan to enlarge</div>
+    <div class="plan-hint">Tap the plan to enlarge</div>
   </div>
 </section>
 
@@ -935,6 +930,8 @@ var HIGHLIGHTS=[
   var lb=document.getElementById('lightbox');var lbImg=document.getElementById('lightboxImg');
   var plan=document.getElementById('planImg');
   plan.addEventListener('click',function(){lbImg.src=plan.src;lb.classList.add('open');});
+  var mapEl=document.getElementById('mapImg');
+  if(mapEl)mapEl.addEventListener('click',function(){lbImg.src=mapEl.src;lb.classList.add('open');});
   lb.addEventListener('click',function(){lb.classList.remove('open');});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('open');});
 })();
@@ -963,3 +960,4 @@ var HIGHLIGHTS=[
 </script>
 </body>
 </html>
+                                                                                                 
