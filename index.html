@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="https://rde-advisors.github.io/22-west-21/images/render-hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* ===== TOKENS ===== */
 :root{
@@ -76,7 +76,7 @@ img{display:block;max-width:100%}
   padding:14px 56px;
 }
 .nav-brand{
-  font-family:'Fraunces',Georgia,serif;
+  font-family:'Lora',Georgia,serif;
   font-weight:600;font-size:19px;letter-spacing:-.01em;
   color:var(--ink);
   opacity:0;transition:opacity .35s;
@@ -91,7 +91,7 @@ img{display:block;max-width:100%}
 .nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 .nav-mobile{display:none;position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,.98);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:84px 28px 32px;z-index:99;flex-direction:column;gap:6px;border-bottom:1px solid var(--rule);box-shadow:0 20px 40px rgba(20,17,13,.08)}
 .nav-mobile.open{display:flex}
-.nav-mobile a{font-family:'Fraunces',serif;font-size:22px;font-weight:500;color:var(--ink);padding:14px 0;border-bottom:1px solid var(--rule-2);letter-spacing:-.01em}
+.nav-mobile a{font-family:'Lora',serif;font-size:22px;font-weight:500;color:var(--ink);padding:14px 0;border-bottom:1px solid var(--rule-2);letter-spacing:-.01em}
 .nav-mobile a:last-child{border-bottom:none}
 .nav-links a{
   font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
@@ -128,8 +128,7 @@ img{display:block;max-width:100%}
 .hero-eyebrow::before{content:'';display:block;width:38px;height:1px;background:var(--green)}
 .hero-eyebrow.in{opacity:1;transform:translateY(0)}
 .hero-address{
-  font-family:'Fraunces',Georgia,serif;
-  font-variation-settings:"opsz" 144;
+  font-family:'Lora',Georgia,serif;
   font-weight:400;
   font-size:clamp(56px,7.6vw,108px);
   line-height:.95;letter-spacing:-.03em;
@@ -138,7 +137,7 @@ img{display:block;max-width:100%}
 }
 .hero-address em{font-style:italic;font-weight:300;color:var(--green)}
 .hero-street{
-  font-family:'Fraunces',Georgia,serif;
+  font-family:'Lora',Georgia,serif;
   font-weight:400;font-style:italic;
   font-size:clamp(18px,2vw,26px);
   color:var(--ink-2);
@@ -153,13 +152,14 @@ img{display:block;max-width:100%}
   opacity:0;transform:translateY(20px);transition:all 1s cubic-bezier(.16,1,.3,1) .55s;
 }
 .hero-tagline span{color:var(--ink-4);margin:0 8px}
+.hero-stat{text-align:center}
 .hero-stats{
   display:flex;gap:48px;margin-top:60px;padding-top:40px;
   border-top:1px solid var(--rule);
   opacity:0;transform:translateY(20px);transition:all 1s cubic-bezier(.16,1,.3,1) .7s;
 }
 .hero-stat-num{
-  font-family:'Fraunces',Georgia,serif;font-weight:400;
+  font-family:'Lora',Georgia,serif;font-weight:400;
   font-size:clamp(32px,3.4vw,44px);line-height:1;color:var(--ink);
   letter-spacing:-.02em;
 }
@@ -203,8 +203,7 @@ img{display:block;max-width:100%}
 }
 .scene-label::before{content:'';display:block;width:24px;height:1px;background:var(--green)}
 .scene-title{
-  font-family:'Fraunces',Georgia,serif;
-  font-variation-settings:"opsz" 144;
+  font-family:'Lora',Georgia,serif;
   font-weight:400;
   font-size:clamp(36px,5vw,64px);line-height:1.05;letter-spacing:-.02em;
   color:var(--ink);
@@ -227,7 +226,7 @@ img{display:block;max-width:100%}
   margin-top:48px;
 }
 .opp-prose{
-  font-family:'Fraunces',Georgia,serif;
+  font-family:'Lora',Georgia,serif;
   font-weight:300;font-size:clamp(20px,1.7vw,26px);line-height:1.55;color:var(--ink-2);
   letter-spacing:-.005em;
 }
@@ -239,8 +238,7 @@ img{display:block;max-width:100%}
   box-shadow:var(--shadow);
 }
 .counter-num{
-  font-family:'Fraunces',Georgia,serif;font-weight:400;
-  font-variation-settings:"opsz" 144;
+  font-family:'Lora',Georgia,serif;font-weight:400;
   font-size:clamp(56px,7vw,92px);line-height:1;
   color:var(--green);letter-spacing:-.03em;
 }
@@ -265,8 +263,7 @@ img{display:block;max-width:100%}
 }
 .floor-id::before{content:'';display:block;width:18px;height:1px;background:var(--green)}
 .floor-h{
-  font-family:'Fraunces',Georgia,serif;font-weight:400;
-  font-variation-settings:"opsz" 144;
+  font-family:'Lora',Georgia,serif;font-weight:400;
   font-size:clamp(40px,4.4vw,60px);line-height:1.05;letter-spacing:-.02em;
 }
 .floor-h em{font-style:italic;color:var(--green);font-weight:300}
@@ -304,6 +301,18 @@ img{display:block;max-width:100%}
 
 /* ===== ENVISION GALLERY ===== */
 .envision-stack{display:flex;flex-direction:column;gap:96px;margin-top:64px}
+.render-tag{
+  display:block;text-align:center;
+  font-family:'Lora',Georgia,serif;font-style:italic;
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);
+  padding:10px 0 14px;background:var(--surface);
+}
+.floor-card-img .render-tag{
+  position:absolute;bottom:10px;right:14px;padding:4px 10px;
+  background:rgba(20,17,13,.5);color:rgba(255,255,255,.9);
+  border-radius:3px;letter-spacing:.12em;
+}
 .env-feature{
   display:grid;grid-template-columns:1fr;gap:0;
   border-radius:18px;overflow:hidden;
@@ -318,7 +327,7 @@ img{display:block;max-width:100%}
 }
 .env-feature .env-eyebrow::before,.env-pair-text .env-eyebrow::before{content:'';display:block;width:22px;height:1px;background:var(--green)}
 .env-feature .env-h{
-  font-family:'Fraunces',Georgia,serif;font-weight:400;
+  font-family:'Lora',Georgia,serif;font-weight:400;
   font-size:clamp(22px,2.4vw,32px);line-height:1.15;letter-spacing:-.01em;color:var(--ink);
 }
 .env-feature .env-h em{font-style:italic;color:var(--green);font-weight:300}
@@ -329,8 +338,7 @@ img{display:block;max-width:100%}
 .env-stage{border-radius:18px;overflow:hidden;box-shadow:var(--shadow);background:var(--surface)}
 .env-stage img{width:100%;display:block;height:auto}
 .env-pair-text .env-h{
-  font-family:'Fraunces',Georgia,serif;font-weight:400;
-  font-variation-settings:"opsz" 144;
+  font-family:'Lora',Georgia,serif;font-weight:400;
   font-size:clamp(28px,3vw,40px);line-height:1.1;letter-spacing:-.02em;color:var(--ink);
 }
 .env-pair-text .env-h em{font-style:italic;color:var(--green);font-weight:300}
@@ -348,12 +356,12 @@ img{display:block;max-width:100%}
 }
 .hcard:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:var(--rule-2)}
 .hcard-num{
-  font-family:'Fraunces',Georgia,serif;font-weight:300;font-style:italic;
+  font-family:'Lora',Georgia,serif;font-weight:300;font-style:italic;
   font-size:36px;line-height:1;color:var(--green);
   display:block;margin-bottom:14px;letter-spacing:-.02em;
 }
 .hcard-title{
-  font-family:'Fraunces',Georgia,serif;font-weight:500;
+  font-family:'Lora',Georgia,serif;font-weight:500;
   font-size:18px;color:var(--ink);margin-bottom:8px;letter-spacing:-.005em;
 }
 .hcard-desc{font-size:13.5px;color:var(--ink-2);line-height:1.65}
@@ -362,7 +370,7 @@ img{display:block;max-width:100%}
 .today-wrap{position:relative;overflow:hidden;border-radius:18px;background:#1f1d19}
 .today-track{display:flex;transition:transform .65s cubic-bezier(.16,1,.3,1)}
 .today-slide{min-width:100%;position:relative}
-.today-slide img{width:100%;height:clamp(380px,60vh,640px);object-fit:cover;display:block}
+.today-slide img{width:100%;height:clamp(380px,60vh,640px);object-fit:contain;display:block;background:#1f1d19}
 .today-cap{
   position:absolute;left:0;right:0;bottom:0;
   padding:60px 50px 36px;color:#fff;
@@ -373,7 +381,7 @@ img{display:block;max-width:100%}
   color:rgba(255,255,255,.7);margin-bottom:8px;
 }
 .today-cap h4{
-  font-family:'Fraunces',Georgia,serif;font-weight:400;
+  font-family:'Lora',Georgia,serif;font-weight:400;
   font-size:clamp(22px,2.4vw,32px);line-height:1.15;letter-spacing:-.01em;
 }
 .today-cap p{font-size:14px;color:rgba(255,255,255,.78);margin-top:6px;max-width:60ch}
@@ -420,7 +428,7 @@ img{display:block;max-width:100%}
   position:relative;margin-top:48px;
   border-radius:18px;overflow:hidden;
   box-shadow:var(--shadow);
-  background:#0e3a6b;
+  background:#e8e5df;
 }
 .map-frame img{width:100%;display:block;height:auto}
 .map-marker{
@@ -430,20 +438,19 @@ img{display:block;max-width:100%}
 }
 .map-marker .pin{transform:translateX(-50%)}
 .map-marker .pin{
-  width:30px;height:30px;border-radius:50%;
-  background:#fff;color:var(--green);
+  width:28px;height:28px;border-radius:50%;
+  background:var(--ink);color:#fff;
   display:flex;align-items:center;justify-content:center;
   font-family:'Inter',sans-serif;
-  font-size:15px;font-weight:800;letter-spacing:-.02em;
-  box-shadow:0 2px 8px rgba(0,0,0,.25);
+  font-size:14px;font-weight:800;letter-spacing:-.02em;
+  box-shadow:0 2px 6px rgba(0,0,0,.18);
 }
 .map-marker .lbl{
   font-family:'Inter',sans-serif;
-  font-size:11px;font-weight:700;letter-spacing:.08em;color:#fff;
+  font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--ink);
   text-transform:uppercase;white-space:nowrap;
-  text-shadow:0 1px 3px rgba(0,0,0,.65), 0 0 6px rgba(0,0,0,.4);
 }
-.map-marker.bathhouse{left:28%;top:48%}
+.map-marker.bathhouse{left:28%;top:55%}
 .map-cap{
   text-align:center;font-size:12px;color:var(--ink-3);
   margin-top:18px;font-style:italic;
@@ -474,8 +481,7 @@ img{display:block;max-width:100%}
 /* ===== CONTACT ===== */
 .contact{text-align:center}
 .contact-h{
-  font-family:'Fraunces',Georgia,serif;font-weight:400;
-  font-variation-settings:"opsz" 144;
+  font-family:'Lora',Georgia,serif;font-weight:400;
   font-size:clamp(36px,5.2vw,68px);line-height:1.05;letter-spacing:-.02em;
   color:var(--ink);
 }
@@ -489,7 +495,7 @@ img{display:block;max-width:100%}
 }
 .broker:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:var(--rule-2)}
 .broker-name{
-  font-family:'Fraunces',Georgia,serif;font-weight:500;
+  font-family:'Lora',Georgia,serif;font-weight:500;
   font-size:22px;color:var(--ink);margin-bottom:4px;
 }
 .broker-firm{
@@ -651,10 +657,9 @@ img{display:block;max-width:100%}
         <div class="floor-status">Available Now</div>
       </div>
       <div class="floor-card-img">
-        <img loading="lazy" decoding="async" src="images/render-windows.jpg" alt="22 West 21st Street — open floor with windows">
+        <img loading="lazy" decoding="async" src="images/render-windows.jpg" alt="22 West 21st Street — open floor with windows"><div class="render-tag">Rendering</div>
       </div>
     </div>
-    <div class="floor-note">For availability on floors above and below, contact the leasing team.</div>
   </div>
 </section>
 
@@ -669,18 +674,17 @@ img{display:block;max-width:100%}
   <div class="envision-stack">
 
     <div class="env-feature reveal">
-      <img src="images/render-hero.jpg" alt="The full floor — envisioned">
+      <img src="images/render-hero.jpg" alt="The full floor — envisioned"><div class="render-tag">Rendering</div>
       <div class="env-caption">
         <div class="env-eyebrow">01 &mdash; The Long View</div>
         <div class="env-h">The full floor, <em>end to end</em>.</div>
-        <div class="env-body">An uninterrupted plate from the pantry at one end to a wall of windows at
-          the other &mdash; columns spaced to disappear into the layout.</div>
+        <div class="env-body">An uninterrupted plate from the pantry at one end to a wall of windows at the other.</div>
       </div>
     </div>
 
     <div class="env-row reveal">
       <div class="env-stage">
-        <img loading="lazy" decoding="async" src="images/render-pantry.jpg" alt="The pantry and lounge — envisioned">
+        <img loading="lazy" decoding="async" src="images/render-pantry.jpg" alt="The pantry and lounge — envisioned"><div class="render-tag">Rendering</div>
       </div>
       <div class="env-pair-text">
         <div class="env-eyebrow">02 &mdash; The Pantry</div>
@@ -692,7 +696,7 @@ img{display:block;max-width:100%}
 
     <div class="env-row reverse reveal">
       <div class="env-stage">
-        <img loading="lazy" decoding="async" src="images/render-office.jpg" alt="The open work area — envisioned">
+        <img loading="lazy" decoding="async" src="images/render-office.jpg" alt="The open work area — envisioned"><div class="render-tag">Rendering</div>
       </div>
       <div class="env-pair-text">
         <div class="env-eyebrow">03 &mdash; The Open Floor</div>
@@ -705,13 +709,12 @@ img{display:block;max-width:100%}
 
     <div class="env-row reveal">
       <div class="env-stage">
-        <img loading="lazy" decoding="async" src="images/render-windows.jpg" alt="A wall of windows — envisioned">
+        <img loading="lazy" decoding="async" src="images/render-windows.jpg" alt="A wall of windows — envisioned"><div class="render-tag">Rendering</div>
       </div>
       <div class="env-pair-text">
         <div class="env-eyebrow">04 &mdash; Light</div>
         <div class="env-h">Windows <em>for days</em>.</div>
-        <div class="env-body">Black-framed steel, floor-to-ceiling on the long exposure &mdash; the
-          kind of Flatiron light that sells a tour by itself.</div>
+        <div class="env-body">Oversized bay windows let in tons of natural light.</div>
       </div>
     </div>
 
@@ -732,9 +735,8 @@ img{display:block;max-width:100%}
   <div style="max-width:1240px;margin:0 auto;padding:0 60px">
     <div class="reveal"><div class="scene-label">The Space Today</div></div>
     <div class="reveal r-d1"><h2 class="scene-title">As&nbsp;it&nbsp;stands.</h2></div>
-    <div class="reveal r-d2"><p class="scene-sub">The floor today &mdash; furnished, plug-and-play,
-      and already in use. The renderings above show what it becomes; these photos show what's there
-      the day you sign.</p></div>
+    <div class="reveal r-d2"><p class="scene-sub">Floor today, furnished plug-and-play. The renderings above
+      show what it can become.</p></div>
   </div>
   <div class="reveal r-d2" style="max-width:1320px;margin:56px auto 0;padding:0 60px">
     <div class="today-wrap">
@@ -771,11 +773,11 @@ img{display:block;max-width:100%}
 <section class="scene" id="plan">
   <div class="reveal" style="text-align:center">
     <div class="scene-label" style="justify-content:center">Floor Plan</div>
-    <h2 class="scene-title" style="margin:0 auto">Test-fit &mdash; <em>68 desks</em>.</h2>
+    <h2 class="scene-title" style="margin:0 auto">As-built &mdash; <em>68 desks</em>.</h2>
   </div>
   <div class="reveal r-d1">
     <div class="plan-frame">
-      <img loading="lazy" decoding="async" class="plan-img" id="planImg" src="images/floor-plan.png" alt="22 West 21st Street floor plan — test-fit, 68 desks">
+      <img loading="lazy" decoding="async" class="plan-img" id="planImg" src="images/floor-plan.png" alt="22 West 21st Street floor plan — as-built, 68 desks">
     </div>
     <div class="plan-hint">Click the plan to enlarge</div>
   </div>
@@ -798,9 +800,9 @@ img{display:block;max-width:100%}
         <span class="lbl">Bathhouse</span>
       </div>
     </div>
-    <div class="map-cap">Bathhouse &mdash; one block north on West 22nd Street.</div>
   </div>
   <div class="reveal r-d2 pills-row">
+    <span class="pill">Bathhouse</span>
     <span class="pill">Madison Square Park</span>
     <span class="pill">Eataly</span>
     <span class="pill">Eleven Madison Park</span>
