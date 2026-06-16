@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>22 West 21st Street — Full Floor Opportunity | Flatiron District, NYC</title>
 <meta name="description" content="11,498 RSF furnished, plug-and-play full floor in the heart of the Flatiron District, NYC. Move-in ready, 68 desks, high ceilings, oversized windows.">
-<link rel="canonical" href="https://rde-advisors.github.io/22-west-21/">
+<link rel="canonical" href="https://22west21.com/">
 <link rel="icon" type="image/png" href="images/rde-logo.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="22 West 21st Street — Full Floor in Flatiron">
 <meta property="og:description" content="11,498 RSF furnished, plug-and-play full floor in the heart of the Flatiron District, NYC.">
-<meta property="og:image" content="https://rde-advisors.github.io/22-west-21/images/render-hero.jpg">
-<meta property="og:url" content="https://rde-advisors.github.io/22-west-21/">
+<meta property="og:image" content="https://22west21.com/images/render-hero.jpg">
+<meta property="og:url" content="https://22west21.com/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="22 West 21st Street — Full Floor in Flatiron">
 <meta name="twitter:description" content="11,498 RSF furnished, plug-and-play full floor in the Flatiron District, NYC.">
-<meta name="twitter:image" content="https://rde-advisors.github.io/22-west-21/images/render-hero.jpg">
+<meta name="twitter:image" content="https://22west21.com/images/render-hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -412,6 +412,11 @@ img{display:block;max-width:100%}
   box-shadow:var(--shadow);margin-top:48px;
 }
 .plan-img{width:100%;display:block;border-radius:8px;cursor:zoom-in}
+.plan-toggle{display:inline-flex;gap:6px;margin-top:28px;padding:5px;background:var(--green-3);border-radius:999px}
+.plan-tab{font-family:inherit;font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--green);background:transparent;border:0;padding:9px 18px;border-radius:999px;cursor:pointer;transition:background .2s,color .2s;white-space:nowrap}
+.plan-tab.active{background:var(--green);color:#fff;box-shadow:var(--shadow)}
+.plan-tab:not(.active):hover{color:var(--green-2)}
+@media(max-width:480px){.plan-tab{font-size:11.5px;padding:8px 12px}}
 .plan-hint{
   text-align:center;font-size:12px;letter-spacing:.18em;text-transform:uppercase;
   color:var(--ink-3);margin-top:18px;
@@ -765,13 +770,17 @@ img{display:block;max-width:100%}
 <section class="scene" id="plan">
   <div class="reveal" style="text-align:center">
     <div class="scene-label" style="justify-content:center">Floor Plan</div>
-    <h2 class="scene-title" style="margin:0 auto">As-built &mdash; <em>68 desks</em>.</h2>
+    <h2 class="scene-title" style="margin:0 auto"><span id="planTitle">Test fit &mdash; <em>78 desks</em>.</span></h2>
+    <div class="plan-toggle" role="tablist" aria-label="Floor plan view">
+      <button type="button" class="plan-tab active" id="tabTestfit" role="tab" aria-selected="true">Test Fit &middot; 78 Desks</button>
+      <button type="button" class="plan-tab" id="tabAsbuilt" role="tab" aria-selected="false">As-Built &middot; 68 Desks</button>
+    </div>
   </div>
   <div class="reveal r-d1">
     <div class="plan-frame">
-      <img loading="lazy" decoding="async" class="plan-img" id="planImg" src="images/floor-plan.png" alt="22 West 21st Street floor plan — as-built, 68 desks">
+      <img loading="lazy" decoding="async" class="plan-img" id="planImg" src="images/floor-plan-testfit.png" alt="22 West 21st Street — test fit, 78 workstations">
     </div>
-    <div class="plan-hint">Tap the plan to enlarge</div>
+    <div class="plan-hint">Tap the plan to enlarge &middot; toggle above for the as-built</div>
   </div>
 </section>
 
@@ -955,6 +964,26 @@ var HIGHLIGHTS=[
   if(mapEl)mapEl.addEventListener('click',function(){lbImg.src=mapEl.src;lb.classList.add('open');});
   lb.addEventListener('click',function(){lb.classList.remove('open');});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('open');});
+})();
+
+/* ===== FLOOR PLAN TOGGLE ===== */
+(function(){
+  var img=document.getElementById('planImg');
+  var title=document.getElementById('planTitle');
+  var tF=document.getElementById('tabTestfit');
+  var tA=document.getElementById('tabAsbuilt');
+  if(!img||!tF||!tA)return;
+  var views={
+    testfit:{src:'images/floor-plan-testfit.png',alt:'22 West 21st Street \u2014 test fit, 78 workstations',title:'Test fit &mdash; <em>78 desks</em>.'},
+    asbuilt:{src:'images/floor-plan-asbuilt.png',alt:'22 West 21st Street \u2014 as-built, 68 desks',title:'As-built &mdash; <em>68 desks</em>.'}
+  };
+  function show(v,btn,other){
+    var d=views[v];img.src=d.src;img.alt=d.alt;title.innerHTML=d.title;
+    btn.classList.add('active');btn.setAttribute('aria-selected','true');
+    other.classList.remove('active');other.setAttribute('aria-selected','false');
+  }
+  tF.addEventListener('click',function(){show('testfit',tF,tA);});
+  tA.addEventListener('click',function(){show('asbuilt',tA,tF);});
 })();
 
 /* ===== MOBILE NAV BURGER ===== */
