@@ -537,7 +537,7 @@ img{display:block;max-width:100%}
   .env-feature .env-body{font-size:14.5px}
   .highlights-grid{grid-template-columns:1fr;gap:10px}
   .hcard{padding:24px 22px}
-  .today-slide img{height:clamp(380px,56vh,500px);object-fit:cover}
+  .today-slide img{height:clamp(280px,42vh,380px);object-fit:cover}
   .today-cap{padding:22px 22px 18px}
   .today-cap h4{font-size:20px}
   .today-cap p{font-size:12.5px;margin-top:4px}
@@ -733,13 +733,13 @@ img{display:block;max-width:100%}
 
 <!-- TODAY (as-is carousel) -->
 <section class="scene scene-full" id="today">
-  <div style="max-width:1240px;margin:0 auto;padding:0 60px">
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(16px,5vw,60px)">
     <div class="reveal"><div class="scene-label">The Space Today</div></div>
     <div class="reveal r-d1"><h2 class="scene-title">As&nbsp;it&nbsp;stands.</h2></div>
     <div class="reveal r-d2"><p class="scene-sub">Floor today, furnished plug-and-play. The renderings above
       show what it can become.</p></div>
   </div>
-  <div class="reveal r-d2" style="max-width:1320px;margin:56px auto 0;padding:0 60px">
+  <div class="reveal r-d2" style="max-width:1320px;margin:56px auto 0;padding:0 clamp(16px,5vw,60px)">
     <div class="today-wrap">
       <div class="today-track" id="todayTrack">
         <div class="today-slide"><img loading="lazy" decoding="async" src="images/open-office-asis.jpg" alt="Open floor with oversized windows today">
