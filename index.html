@@ -297,6 +297,8 @@ img{display:block;max-width:100%}
 @keyframes pulse-dot{0%,100%{box-shadow:0 0 0 4px rgba(45,90,61,.15)}50%{box-shadow:0 0 0 8px rgba(45,90,61,.05)}}
 .floor-card-img{position:relative;background:#e6e3dd;min-height:380px;overflow:hidden}
 .floor-card-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.floor-card.no-img{grid-template-columns:1fr}
+.floor-card.no-img .floor-card-meta{max-width:900px;width:100%;margin:0 auto}
 .floor-note{text-align:center;font-size:13px;color:var(--ink-3);margin-top:28px;font-style:italic}
 
 /* ===== ENVISION GALLERY ===== */
@@ -326,17 +328,17 @@ img{display:block;max-width:100%}
 }
 .env-feature .env-h em{font-style:italic;color:var(--green);font-weight:300}
 .env-feature .env-body{margin-top:10px;font-size:14px;color:var(--ink-2);line-height:1.65;max-width:62ch}
-.env-row{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
-.env-row.reverse{grid-template-columns:1fr 1.05fr}
+.env-row{display:grid;grid-template-columns:1.7fr 1fr;gap:48px;align-items:center}
+.env-row.reverse{grid-template-columns:1fr 1.7fr}
 .env-row.reverse .env-stage{order:2}
 .env-stage{background:transparent;display:flex;flex-direction:column}
 .env-stage img{width:100%;display:block;height:auto;border-radius:18px;box-shadow:var(--shadow)}
 .env-pair-text .env-h{
   font-family:'Lora',Georgia,serif;font-weight:400;
-  font-size:clamp(28px,3vw,40px);line-height:1.1;letter-spacing:-.02em;color:var(--ink);
+  font-size:clamp(18px,1.8vw,24px);line-height:1.15;letter-spacing:-.02em;color:var(--ink);
 }
 .env-pair-text .env-h em{font-style:italic;color:var(--green);font-weight:300}
-.env-pair-text .env-body{margin-top:20px;font-size:16px;color:var(--ink-2);line-height:1.75;max-width:42ch}
+.env-pair-text .env-body{margin-top:12px;font-size:12.5px;color:var(--ink-2);line-height:1.7;max-width:34ch}
 
 /* ===== HIGHLIGHTS ===== */
 .highlights-grid{
@@ -552,12 +554,12 @@ img{display:block;max-width:100%}
   <div class="nav-brand">22 <em>West 21st</em></div>
   <div class="nav-links">
     <a href="#overview">Overview</a>
-    <a href="#floor">The Floor</a>
     <a href="#envision">Envision</a>
     <a href="#highlights">Highlights</a>
+    <a href="#plan">Plan</a>
+    <a href="#floor">The Floor</a>
     <a href="#today">Today</a>
     <a href="#lobby">Lobby</a>
-    <a href="#plan">Plan</a>
     <a href="#flatiron">Flatiron</a>
   </div>
   <a href="#contact" class="nav-cta">Contact</a>
@@ -565,15 +567,16 @@ img{display:block;max-width:100%}
 </nav>
 <div class="nav-mobile" id="navMobile" role="menu">
   <a href="#overview" role="menuitem">Overview</a>
-  <a href="#floor" role="menuitem">The Floor</a>
   <a href="#envision" role="menuitem">Envision</a>
   <a href="#highlights" role="menuitem">Highlights</a>
+  <a href="#plan" role="menuitem">Floor Plan</a>
+  <a href="#floor" role="menuitem">The Floor</a>
   <a href="#today" role="menuitem">Today</a>
   <a href="#lobby" role="menuitem">Lobby</a>
-  <a href="#plan" role="menuitem">Floor Plan</a>
   <a href="#flatiron" role="menuitem">Flatiron</a>
   <a href="#contact" role="menuitem">Contact</a>
 </div>
+
 
 <!-- HERO (editorial split) -->
 <section class="hero" id="hero">
@@ -581,12 +584,6 @@ img{display:block;max-width:100%}
     <div class="hero-eyebrow">Flatiron District &nbsp;·&nbsp; New York</div>
     <h1 class="hero-address">22 West <em>Twenty-First</em></h1>
     <div class="hero-street">A full floor, furnished and ready.</div>
-    <div class="hero-tagline">11,498 RSF <span>·</span> 68 Desks <span>·</span> Move-In Ready</div>
-    <div class="hero-stats">
-      <div class="hero-stat"><div class="hero-stat-num">11,498</div><div class="hero-stat-label">RSF</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">68</div><div class="hero-stat-label">Desks</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">7</div><div class="hero-stat-label">Meeting Rooms</div></div>
-    </div>
     <div class="scroll-cue">Scroll</div>
   </div>
   <div class="hero-image">
@@ -619,12 +616,97 @@ img{display:block;max-width:100%}
   </div>
 </section>
 
+<!-- ENVISION -->
+<section class="scene" id="envision">
+  <div class="reveal"><div class="scene-label">Envisioned</div></div>
+  <div class="reveal r-d1"><h2 class="scene-title">The floor's <em>full potential</em>.</h2></div>
+  <div class="reveal r-d2"><p class="scene-sub">A series of design studies for 22 West 21 &mdash; the
+    bones of the building elevated to a polished, design-forward workplace. Every view below is the
+    same floor, reimagined.</p></div>
+
+  <div class="envision-stack">
+
+    <div class="env-row reveal">
+      <div class="env-stage">
+        <img loading="lazy" decoding="async" src="images/render-pantry.jpg" alt="The pantry and lounge — envisioned"><div class="render-tag">Rendering</div>
+      </div>
+      <div class="env-pair-text">
+        <div class="env-eyebrow">01 &mdash; The Pantry</div>
+        <div class="env-h">A <em>living</em> pantry, lounge included.</div>
+        <div class="env-body">Hospitality-grade kitchen, a green canopy overhead, and a soft lounge
+          beside it &mdash; the floor's social center.</div>
+      </div>
+    </div>
+
+    <div class="env-row reverse reveal">
+      <div class="env-stage">
+        <img loading="lazy" decoding="async" src="images/render-office.jpg" alt="The open work area — envisioned"><div class="render-tag">Rendering</div>
+      </div>
+      <div class="env-pair-text">
+        <div class="env-eyebrow">02 &mdash; The Open Floor</div>
+        <div class="env-h">Open work, <em>designed</em>.</div>
+        <div class="env-body">Sleek desks in wood and matte black, premium task chairs, and glass-walled meeting rooms
+          throughout &mdash; light passes through everywhere. A refined ceiling with linear lighting,
+          the columns left as bones.</div>
+      </div>
+    </div>
+
+    <div class="env-row reveal">
+      <div class="env-stage">
+        <img loading="lazy" decoding="async" src="images/render-windows.jpg" alt="A wall of windows — envisioned"><div class="render-tag">Rendering</div>
+      </div>
+      <div class="env-pair-text">
+        <div class="env-eyebrow">03 &mdash; Light</div>
+        <div class="env-h">Windows <em>for days</em>.</div>
+        <div class="env-body">Oversized bay windows let in tons of natural light.</div>
+      </div>
+    </div>
+
+    <div class="env-feature reveal">
+      <img src="images/render-hero.jpg" alt="The full floor — envisioned"><div class="render-tag">Rendering</div>
+      <div class="env-caption">
+        <div class="env-eyebrow">04 &mdash; The Long View</div>
+        <div class="env-h">The full floor, <em>end to end</em>.</div>
+        <div class="env-body">An uninterrupted plate from the pantry at one end to a wall of windows at the other.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- HIGHLIGHTS -->
+<section class="scene" id="highlights">
+  <div class="reveal" style="text-align:center">
+    <div class="scene-label" style="justify-content:center">Summary</div>
+    <h2 class="scene-title" style="margin:0 auto">The deal, <em>at a glance</em>.</h2>
+  </div>
+  <div class="highlights-grid reveal r-d1" id="highlightsGrid"></div>
+</section>
+
+<!-- FLOOR PLAN -->
+<section class="scene" id="plan">
+  <div class="reveal" style="text-align:center">
+    <div class="scene-label" style="justify-content:center">Floor Plan</div>
+    <h2 class="scene-title" style="margin:0 auto"><span id="planTitle">Test fit &mdash; <em>78 desks</em>.</span></h2>
+    <div class="plan-toggle" role="tablist" aria-label="Floor plan view">
+      <button type="button" class="plan-tab active" id="tabTestfit" role="tab" aria-selected="true">Test Fit &middot; 78 Desks</button>
+      <button type="button" class="plan-tab" id="tabAsbuilt" role="tab" aria-selected="false">As-Built &middot; 68 Desks</button>
+    </div>
+  </div>
+  <div class="reveal r-d1">
+    <div class="plan-frame">
+      <img loading="lazy" decoding="async" class="plan-img" id="planImg" src="images/floor-plan-testfit.png" alt="22 West 21st Street — test fit, 78 workstations">
+    </div>
+    <div class="plan-hint">Tap the plan to enlarge &middot; toggle above for the as-built</div>
+  </div>
+</section>
+
 <!-- THE FLOOR -->
 <section class="scene" id="floor">
   <div class="reveal"><div class="scene-label">The Floor</div></div>
   <div class="reveal r-d1"><h2 class="scene-title">Built for the way teams <em>actually</em> work.</h2></div>
   <div class="reveal r-d2">
-    <div class="floor-card">
+    <div class="floor-card no-img">
       <div class="floor-card-meta">
         <div class="floor-id">2nd Floor &middot; As It Stands</div>
         <div class="floor-h"><em>11,498</em> RSF, the full floor.</div>
@@ -641,78 +723,8 @@ img{display:block;max-width:100%}
         </ul>
         <div class="floor-status">Available 4Q 2026</div>
       </div>
-      <div class="floor-card-img">
-        <img loading="lazy" decoding="async" src="images/render-windows.jpg" alt="22 West 21st Street — open floor with windows">
-      </div>
     </div>
   </div>
-</section>
-
-<!-- ENVISION -->
-<section class="scene" id="envision">
-  <div class="reveal"><div class="scene-label">Envisioned</div></div>
-  <div class="reveal r-d1"><h2 class="scene-title">The floor's <em>full potential</em>.</h2></div>
-  <div class="reveal r-d2"><p class="scene-sub">A series of design studies for 22 West 21 &mdash; the
-    bones of the building elevated to a polished, design-forward workplace. Every angle below is the
-    same floor, the same camera, just reimagined.</p></div>
-
-  <div class="envision-stack">
-
-    <div class="env-feature reveal">
-      <img src="images/render-hero.jpg" alt="The full floor — envisioned"><div class="render-tag">Rendering</div>
-      <div class="env-caption">
-        <div class="env-eyebrow">01 &mdash; The Long View</div>
-        <div class="env-h">The full floor, <em>end to end</em>.</div>
-        <div class="env-body">An uninterrupted plate from the pantry at one end to a wall of windows at the other.</div>
-      </div>
-    </div>
-
-    <div class="env-row reveal">
-      <div class="env-stage">
-        <img loading="lazy" decoding="async" src="images/render-pantry.jpg" alt="The pantry and lounge — envisioned"><div class="render-tag">Rendering</div>
-      </div>
-      <div class="env-pair-text">
-        <div class="env-eyebrow">02 &mdash; The Pantry</div>
-        <div class="env-h">A <em>living</em> pantry, lounge included.</div>
-        <div class="env-body">Hospitality-grade kitchen, a green canopy overhead, and a soft lounge
-          beside it &mdash; the floor's social center.</div>
-      </div>
-    </div>
-
-    <div class="env-row reverse reveal">
-      <div class="env-stage">
-        <img loading="lazy" decoding="async" src="images/render-office.jpg" alt="The open work area — envisioned"><div class="render-tag">Rendering</div>
-      </div>
-      <div class="env-pair-text">
-        <div class="env-eyebrow">03 &mdash; The Open Floor</div>
-        <div class="env-h">Open work, <em>designed</em>.</div>
-        <div class="env-body">Sleek desks in wood and matte black, premium task chairs, and glass-walled meeting rooms
-          throughout &mdash; light passes through everywhere. A refined ceiling with linear lighting,
-          the columns left as bones.</div>
-      </div>
-    </div>
-
-    <div class="env-row reveal">
-      <div class="env-stage">
-        <img loading="lazy" decoding="async" src="images/render-windows.jpg" alt="A wall of windows — envisioned"><div class="render-tag">Rendering</div>
-      </div>
-      <div class="env-pair-text">
-        <div class="env-eyebrow">04 &mdash; Light</div>
-        <div class="env-h">Windows <em>for days</em>.</div>
-        <div class="env-body">Oversized bay windows let in tons of natural light.</div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- HIGHLIGHTS -->
-<section class="scene" id="highlights">
-  <div class="reveal" style="text-align:center">
-    <div class="scene-label" style="justify-content:center">Summary</div>
-    <h2 class="scene-title" style="margin:0 auto">The deal, <em>at a glance</em>.</h2>
-  </div>
-  <div class="highlights-grid reveal r-d1" id="highlightsGrid"></div>
 </section>
 
 <!-- TODAY (as-is carousel) -->
@@ -734,10 +746,10 @@ img{display:block;max-width:100%}
             <h4>The pantry as it stands.</h4><p>Living plant wall, full kitchen, breakout space.</p></div></div>
         <div class="today-slide"><img loading="lazy" decoding="async" src="images/open-office-dense.jpg" alt="Open office today">
           <div class="today-cap"><div class="today-cap-eyebrow">Today &mdash; Open Floor</div>
-            <h4>68 desks, room to densify.</h4><p>The column-spaced floor plate takes considerably more.</p></div></div>
+            <h4>68 desks, room to densify.</h4></div></div>
         <div class="today-slide"><img loading="lazy" decoding="async" src="images/glass-offices.jpg" alt="Glass offices today">
           <div class="today-cap"><div class="today-cap-eyebrow">Today &mdash; Meeting Rooms</div>
-            <h4>Glass-walled offices.</h4><p>Private offices and meeting rooms ring the floor.</p></div></div>
+            <h4>Glass-walled offices.</h4></div></div>
         <div class="today-slide"><img loading="lazy" decoding="async" src="images/huddle-room.jpg" alt="Huddle room today">
           <div class="today-cap"><div class="today-cap-eyebrow">Today &mdash; Conference</div>
             <h4>Six conference rooms.</h4><p>Acoustically treated, wired, and ready.</p></div></div>
@@ -766,24 +778,6 @@ img{display:block;max-width:100%}
     <div class="lobby-frame">
       <img loading="lazy" decoding="async" src="images/reception-asis.jpg" alt="22 West 21st Street &mdash; attended building lobby">
     </div>
-  </div>
-</section>
-
-<!-- FLOOR PLAN -->
-<section class="scene" id="plan">
-  <div class="reveal" style="text-align:center">
-    <div class="scene-label" style="justify-content:center">Floor Plan</div>
-    <h2 class="scene-title" style="margin:0 auto"><span id="planTitle">Test fit &mdash; <em>78 desks</em>.</span></h2>
-    <div class="plan-toggle" role="tablist" aria-label="Floor plan view">
-      <button type="button" class="plan-tab active" id="tabTestfit" role="tab" aria-selected="true">Test Fit &middot; 78 Desks</button>
-      <button type="button" class="plan-tab" id="tabAsbuilt" role="tab" aria-selected="false">As-Built &middot; 68 Desks</button>
-    </div>
-  </div>
-  <div class="reveal r-d1">
-    <div class="plan-frame">
-      <img loading="lazy" decoding="async" class="plan-img" id="planImg" src="images/floor-plan-testfit.png" alt="22 West 21st Street — test fit, 78 workstations">
-    </div>
-    <div class="plan-hint">Tap the plan to enlarge &middot; toggle above for the as-built</div>
   </div>
 </section>
 
@@ -853,17 +847,6 @@ img{display:block;max-width:100%}
   </div>
 </section>
 
-<footer class="foot">
-  <div class="foot-inner">
-    <div class="foot-logo"><img src="images/rde-logo.png" alt="RDE Advisors, Inc."></div>
-    <div class="foot-fine">
-      22 West 21st Street, New York, NY &mdash; Flatiron District.<br>
-      All information is from sources deemed reliable and is subject to errors, omissions, change of
-      price, prior lease, or withdrawal without notice. Marketed exclusively by RDE Advisors, Inc.
-    </div>
-  </div>
-</footer>
-
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox"><img id="lightboxImg" src="" alt="Floor plan enlarged"></div>
 
@@ -915,7 +898,7 @@ img{display:block;max-width:100%}
 
 /* ===== HIGHLIGHTS ===== */
 var HIGHLIGHTS=[
-  {n:'01',title:'Move-In Ready',desc:'No build-out, no downtime. finished, furnished, ready to occupy.'},
+  {n:'01',title:'Move-In Ready',desc:'No build-out, no downtime. Finished, furnished, ready to occupy.'},
   {n:'02',title:'Landlord Will Fully Renovate',desc:'Hands-on ownership will deliver a high-end, bespoke build-out for a long-term occupier.'},
   {n:'03',title:'Attended Lobby',desc:'Staffed building entrance &mdash; visitors greeted at the door.'},
   {n:'04',title:'2 Blocks from Madison Sq. Park',desc:'The park, Eataly, Bathhouse, Eleven Madison, and the heart of Flatiron &mdash; all within a few blocks.'},
